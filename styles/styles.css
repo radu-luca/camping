@@ -1,0 +1,45 @@
+body, p {
+    margin: 0;
+}
+
+main {
+    background: turquoise;
+    width: 100%;
+}
+
+.index__block {
+    height: 100vh;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+.central-part {
+    display: flex;
+    justify-content: center;
+    height: 60%;
+    /* height: 100%; */
+}
+
+.app__header{
+    background: yellowgreen;
+    margin: 0;
+    height: 10%;
+    /* height: 100%; */
+}
+
+.left__side {
+    background: tomato;
+    width: 100%;
+}
+
+.right__side {
+    background: wheat;
+    width: 100%;
+}
+
+.app_footer {
+    background: chartreuse;
+    height: 30%;
+}
+
