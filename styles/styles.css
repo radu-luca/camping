@@ -1,5 +1,11 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
  
 a {
@@ -11,12 +17,10 @@ a {
     width: 100%;
 }
  
- 
 .central-part {
     display: flex;
     justify-content: center;
-    height: 80%;
-    /* height: 100%; */
+    flex: 1;
 }
  
 .app__header{
@@ -25,7 +29,6 @@ a {
     justify-content: space-around;
     align-items: center;
     margin: 0;
-    height: 10%;
 }
  
 .left__side {
@@ -39,17 +42,17 @@ a {
 }
  
 .app_footer {
+    height: 5em;
     background: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
-    /* position: fixed; */
+    width: 100%;
+    flex-shrink: 0;
 }
  
 .logo {
     display: inline-block;
-    /* margin: 1em; */
 }
  
 .header-btn {
