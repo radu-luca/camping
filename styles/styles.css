@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    background: whitesmoke;
 }
 
 body {
@@ -14,7 +15,7 @@ a {
 
 .btn-allCamps {
     text-decoration: none;
-    color: tomato;
+    color: rgb(250, 0, 50);
     display: inline-block;
     position: relative;
     left: 60%;
@@ -24,34 +25,29 @@ a {
     text-decoration: underline;
 }
 
-.top-camps {
-    background: dimgray;
-    height: fit-content;
-}
-
-.item-list {
-    margin: 1em 1em;
-    font-size: 2em;
-}
-
-.item-list:hover {
-    text-decoration: underline;
-}
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+.gallery .gallery__thumbnail {
+    width: 30%;
+    background: white;
+    margin: 2em 0;
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    padding: 3px;
 }
 
 .gallery img {
-    width: 20em;
-    margin: 5em 0;
-    border-radius: 2em;
+    width: 100%;
 }
 
-.gallery img:hover {
+
+.gallery .gallery__thumbnail:hover {
     opacity: 0.7;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
 .navbar {
@@ -62,7 +58,6 @@ a {
 }
  
 .main__side {
-    background: whitesmoke;
     width: 75%;
     position: relative;
 }
@@ -77,7 +72,6 @@ a {
  
 .app__header{
     background: rgb(250, 0, 50);
-    /* margin-bottom: 1em; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -97,15 +91,6 @@ a {
     display: inline-block;
 }
 
-.top-background {
-    width: 100%;
-    min-height: 500px;
-    flex-shrink: 0;
-    background: url('https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-    background-size: cover;
-    opacity: 0.6;
-}
-
 .left-header-btn {
     color: antiquewhite;
     padding-right: 1em;
@@ -119,6 +104,30 @@ a {
 .footer-btn {
     margin: 1em;
     color: antiquewhite;
+}
+
+.top-background {
+    width: 100%;
+    min-height: 500px;
+    flex-shrink: 0;
+    background: url('https://images.unsplash.com/photo-1563299796-17596ed6b017?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.top-background__msg {
+    font-weight: 900;
+    font-size: 3.5em;
+}
+
+.top-background__paragraph {
+    font-weight: 500;
+    font-size: 1.5em;
 }
  
 @media screen and (max-width: 600px) {
