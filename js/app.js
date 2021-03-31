@@ -3,7 +3,7 @@ let navPanel = document.getElementById("navPanel");
 window.onresize=hideCollapsedNavBar();
 
 menuBtn.addEventListener("click", onMenuClick);
-window.addEventListener("resize", displayWindowSize);
+window.addEventListener("resize", hideCollapsedNavBar);
 
 
 function onMenuClick(event) {
