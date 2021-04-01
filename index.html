@@ -7,6 +7,7 @@
     <title>Document</title>
  
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="app__header">
@@ -16,13 +17,13 @@
                     <h3 class="logo left-header-btn">YelpCamp</h3>
                 </a>
                 <a href="">
-                    <span class="left-header-btn">Campgrounds</span>
+                    <span class="left-header-btn-links">Campgrounds</span>
                 </a>
                 <a href="">
-                    <span class="left-header-btn">About</span>
+                    <span class="left-header-btn-links">About</span>
                 </a>
                 <a href="">
-                    <span class="left-header-btn">New</span>
+                    <span class="left-header-btn-links">New</span>
                 </a>
     
             </div>
@@ -36,9 +37,29 @@
                 </a>
             </div>
         </div>
-        
+        <button class="menuBtn" id="menuBtn" type="button"> Menu </button>
     </header>
-
+    <nav id="navPanel">
+        <ol class="navbar-links">
+          <li>
+            <a href="">Campgrounds</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">News</a>
+          </li>
+          <li>
+            <a href="">Login</a>
+          </li>
+          <li>
+            <a href=" ">Sign Up</a>
+          </li>
+  
+        </ol>
+        
+      </nav>
         <div class="top-background">
             <h1 class="top-background__msg">
                 Welcome to Campgrounds!
@@ -46,6 +67,13 @@
             <p class="top-background__paragraph">
               Find your best campground and enjoy the nature  
             </p>
+        </div>
+
+        <div class="resources">
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
         </div>
  
         <div class="central-part">
@@ -100,6 +128,6 @@
                 </a>
             </div>
         </footer>
- 
+ <script src="js/app.js"></script>
 </body>
 </html>
