@@ -55,6 +55,12 @@ a {
     display: inline-block;
     position: relative;
     left: 60%;
+    margin: 3em 0;
+    cursor: pointer;
+}
+
+.btn-allCamps h3 {
+    margin: 0;
 }
 
 .btn-allCamps:hover {
@@ -231,6 +237,11 @@ nav{
   
   }
  
+
+.hidden {
+    display: none;
+}
+
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
         display: none;
