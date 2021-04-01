@@ -50,4 +50,6 @@ function addHiddenClass() {
     
     displayAllCampsBtn.classList.remove("hidden");
     hideAllCamps.classList.add("hidden");
+
+    
 }
