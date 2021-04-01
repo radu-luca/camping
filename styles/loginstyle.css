@@ -23,10 +23,10 @@ a {
 }
  
 .main__side {
-    width: 75%;
-    position: relative;
     display: flex;
     align-items: center;
+    text-align: center;
+    height: 100%;
 }
  
 .central-part {
@@ -90,10 +90,6 @@ a {
     font-size: .85em;
     width: 70%;
  }
- .half{
-    padding: 1em;
-    width: 50%;
- }
  .header-register{
     font-family: "Roboto", sans-serif;
     text-align: center;
@@ -105,14 +101,6 @@ a {
      font-weight: bold;
      text-align: left;
       padding-left: 2em; 
- }
- .register-part{
-     display: flex;
-     align-items:center;
-     flex-direction: column;
- }
- .required_text{
-     font-size: 0.7em;
  }
  .btn_signup{
      display: block;
@@ -126,67 +114,10 @@ a {
      line-height: 1.5;
      border-radius: .25rem;
  }
- img {
-     width: 140px;
-     height: 110px;
-        /* max-width: 100%;
-     min-width: 100%;  */
-     /* width: 100%;
-     height: 100%; */
-     /* object-fit: cover; */
- }
-.img_gallery{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-     flex-wrap: wrap; 
-     justify-content: space-around;
-    /* width: 100%; */
-    padding: 1em;
 
-}
-.card_imgInfo{
-    padding: 0.85em;
-    margin: 1em;
-    width: 100px;
-    /* height: 90px; */
-    text-align: center;
-}
-.small_txt{
+p{
+    font-weight: 0.7;
     font-family:  'Open Sans', serif;
-    font-size: small;
-}
-
-
-@media screen and (max-width: 1064px) {
-
-    .app__header {
-        flex-direction: column;
-    
-    }
-    .img_gallery{
-        flex-direction: column;
-    }
-    .main__side{
-        flex-direction: column;
-    }
-    .half{
-        width: 100%;
-        padding: 0;
-    }
-    .main__side {
-        height: 100%;
-        order: -1;
-
-    }
-    img{
-         max-width: 100%;
-     min-width: 100%; 
-    }
-    .card_imgInfo{
-        width: 100%;
-        padding: 0;
-    }
 }
 
 @media screen and (max-width: 500px)
