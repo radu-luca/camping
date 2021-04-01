@@ -159,6 +159,7 @@ a {
 
 
 @media screen and (max-width: 1064px) {
+
     .app__header {
         flex-direction: column;
     
@@ -184,5 +185,6 @@ a {
     }
     .card_imgInfo{
         width: 100%;
+        padding: 0;
     }
 }
