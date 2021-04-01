@@ -113,8 +113,12 @@ a {
      font-size: 1em;
      line-height: 1.5;
      border-radius: .25rem;
+     cursor: pointer;
  }
-
+.btn_signup:hover{
+    background-color: #c20027;
+    border-color: #c20027;
+}
 p{
     font-weight: 0.7;
     font-family:  'Open Sans', serif;
