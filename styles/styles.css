@@ -214,12 +214,7 @@ a {
 .menuBtn:hover{
     background-color:rgb(179, 36,  0);
   }
-.navbar {
-    width: 75%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
 nav{
     padding:1em;
     width: 8em;
