@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
- 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
     <link rel="stylesheet" href="./styles/addstyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <header class="app__header">
         <div class="navbar">
@@ -42,7 +43,7 @@
     <nav id="navPanel">
         <ol class="navbar-links">
           <li>
-            <a href="">Campgrounds</a>
+            <a href="/index.html">Campgrounds</a>
           </li>
           <li>
             <a href="">About</a>
@@ -51,47 +52,60 @@
             <a href="">News</a>
           </li>
           <li>
-            <a href="">Login</a>
+            <a href="/login.html">Login</a>
           </li>
           <li>
-            <a href=" ">Sign Up</a>
+            <a href="/register.html">Sign Up</a>
           </li>
   
         </ol>
         
       </nav>
-        <div class="top-background">
-            <h1 class="top-background__msg">
-                Add your Campgrounds !
-            </h1>
-            <p class="top-background__paragraph">
-              
-            </p>
+    <div class="central-part">
+
+        <main class="main__side">
+                <div>
+                    <h1 class="header-register">Add Campgrounds</h1>
+                    <form class="register-form" action="">
+
+                        <label for="name_camp" class="label_input">Name</label>
+                        <input type="text" class="input_inline" name="name_camp" required>
+                        
+                        <label for="price" class="label_input">Price / day</label>
+                        <input type="number" class="input_inline" value="1.0" step="1.0" required>
+
+                        <label for="imagini" class="label_input display-inline">Pictures</label>
+                        <input type='file' name="imagini" accept="image/gif, image/jpeg, image/png" class="input_inline" multiple required>
+                            <!-- <img id="blah" src="#" alt="your image" > -->
+
+                        <label for="description" class="label_input">Description</label>
+                        <textarea class="input_inline" type="text" name="description" 
+                         rows="10" placeholder="Add a small Description" required=""></textarea>
+                        
+
+                        <button type="submit" class="btn_signup">Submit</button>
+                    </form>
+
+                </div>
+
+
+        </main>
+    </div>
+
+    <footer class="app_footer">
+        <div class="about-us">
+            <a href="" class="footer-btn">
+                About Us
+            </a>
         </div>
 
- 
-        <div class="central-part">
-            <main class="main__side">
-                <form action="">
-
-                </form>
-            
-            </main>
+        <div class="contact">
+            <a href="" class="footer-btn">
+                Contact
+            </a>
         </div>
- 
-        <footer class="app_footer">
-            <div class="about-us">
-                <a href="" class="footer-btn">
-                    About Us
-                </a> 
-            </div>
- 
-            <div class="contact">
-                <a href="" class="footer-btn">
-                    Contact
-                </a>
-            </div>
-        </footer>
- <script src="js/app.js"></script>
+    </footer>
+
 </body>
+<script src="/js/app.js"></script>
 </html>
