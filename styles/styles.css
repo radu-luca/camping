@@ -184,7 +184,6 @@ a {
     flex-shrink: 0;
     background: url('https://images.unsplash.com/photo-1563299796-17596ed6b017?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
     background-size: cover;
-    /* opacity: 0.8; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -293,6 +292,11 @@ nav{
     .gallery img {
         height: 20em;
     }
+
+    .btn-allCamps {
+        left: auto;
+        right: auto;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -302,5 +306,9 @@ nav{
 
     .resources {
         flex-direction: column;
+    }
+
+    .top-background__msg {
+        font-size: 2.5em;
     }
 }
