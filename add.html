@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
-    <link rel="stylesheet" href="./styles/loginstyle.css">
+    <link rel="stylesheet" href="./styles/addstyle.css">
 </head>
 
 <body>
@@ -65,19 +65,27 @@
 
         <main class="main__side">
                 <div>
-                    <h1 class="header-register">Login</h1>
+                    <h1 class="header-register">Add Campgrounds</h1>
                     <form class="register-form" action="">
 
-                        <label for="email_log" class="label_input">Email adress*</label>
-                        <input type="text" class="input_inline" name="email_log" required>
+                        <label for="name_camp" class="label_input">Name</label>
+                        <input type="text" class="input_inline" name="name_camp" required>
+                        
+                        <label for="price" class="label_input">Price / day</label>
+                        <input type="number" class="input_inline" value="1.0" step="1.0" required>
 
-                        <label for="password_login" class="label_input">Password*</label>
-                        <input type="password" class="input_inline" name="password_login" required>
+                        <label for="imagini" class="label_input display-inline">Pictures</label>
+                        <input type='file' name="imagini" accept="image/gif, image/jpeg, image/png" class="input_inline" multiple required>
+                            <!-- <img id="blah" src="#" alt="your image" > -->
 
+                        <label for="description" class="label_input">Description</label>
+                        <textarea class="input_inline" type="text" name="description" 
+                         rows="10" placeholder="Add a small Description" required=""></textarea>
+                        
 
-                        <button type="submit" class="btn_signup">Login</button>
+                        <button type="submit" class="btn_signup">Submit</button>
                     </form>
-                  <p>Don't have an account? <a href="/register.html">Sign Up</a></p>  
+
                 </div>
 
 

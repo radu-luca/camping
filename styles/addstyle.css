@@ -22,10 +22,10 @@ a {
 }
 
 .main__side {
-    width: 75%;
-    position: relative;
     display: flex;
     align-items: center;
+    text-align: center;
+    height: 100%;
 }
  
 .central-part {
@@ -135,7 +135,7 @@ a {
     border: 1px solid #bcc2c6;
     border-radius: 5px;
     color: #1b1b15;
-    width: 350px;
+    width: 500px;
     text-align: center;
  }
  .input_inline{
@@ -161,6 +161,9 @@ a {
      font-weight: bold;
      text-align: left;
       padding-left: 2em; 
+ }
+ .description{
+     height: 10em;
  }
  .register-part{
      display: flex;
