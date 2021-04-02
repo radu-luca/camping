@@ -13,19 +13,35 @@ a {
     text-decoration: none;
 }
 
-.resources {
+.info-section {
     width: 100%;
-    height: 5em;
     background: white;
     flex-shrink: 0;
-    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.resources {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .resources .search-bar {
-    position: absolute;
     box-sizing: border-box;
-    right: 20%;
-    top: 15%;
+    margin: 1em 0;
+}
+
+.select-order {
+    border: none;
+    height: fit-content;
+    font-size: large;
+    cursor: pointer;
+}
+
+.select-order:focus {
+    outline: none;
 }
 
 .search-bar input {
@@ -55,6 +71,12 @@ a {
     display: inline-block;
     position: relative;
     left: 60%;
+    margin: 3em 0;
+    cursor: pointer;
+}
+
+.btn-allCamps h3 {
+    margin: 0;
 }
 
 .btn-allCamps:hover {
@@ -74,9 +96,13 @@ a {
     border: 1px solid #ddd; 
     border-radius: 4px;
     padding: 3px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .gallery .gallery__thumbnail a {
     color: rgb(61, 123, 255);
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 1em;
 }
 
 .gallery .gallery__thumbnail a:hover {
@@ -85,7 +111,7 @@ a {
 
 .gallery img {
     width: 100%;
-    height: 15em;
+    height: 20em;
     object-fit: cover;
     object-position: bottom;
 }
@@ -164,6 +190,7 @@ a {
     flex-direction: column;
     align-items: center;
     color: white;
+    text-align: center;
 }
 
 .top-background__msg {
@@ -230,40 +257,24 @@ nav{
   
   }
  
+
+.hidden {
+    display: none;
+}
+
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
         display: none;
     
       }
-    
- 
-    .central-part {
-        flex-direction: column;
-    }
-    .menuBtn{
-        display: block;
-        
-      }
- 
-    .right__side {
-        width: 100%;
-        height: 100%;
-    }
- 
-    .left__side {
-        width: 100%;
-        height: 100%;
-    }
- 
-    .main__side {
-        height: 100%;
-        order: -1;
+}
+
+@media screen and (max-width: 1500px) {
+    .gallery img {
+        height: 15em;
     }
 }
 
-@media screen and (min-width: 621px){
-    
-}
 @media screen and (max-width: 1200px) {
     .gallery .gallery__thumbnail {
         width: 45%;
@@ -276,5 +287,21 @@ nav{
     }
     .gallery img {
         height: 30em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .gallery img {
+        height: 20em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gallery img {
+        height: 15em;
+    }
+
+    .resources {
+        flex-direction: column;
     }
 }
