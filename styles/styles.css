@@ -267,6 +267,9 @@ nav{
         display: none;
     
       }
+      .menuBtn{
+          display: block;
+      }
 }
 
 @media screen and (max-width: 1500px) {
