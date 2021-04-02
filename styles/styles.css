@@ -37,6 +37,7 @@ a {
     border: none;
     height: fit-content;
     font-size: large;
+    cursor: pointer;
 }
 
 .select-order:focus {
@@ -110,7 +111,7 @@ a {
 
 .gallery img {
     width: 100%;
-    height: 15em;
+    height: 20em;
     object-fit: cover;
     object-position: bottom;
 }
@@ -266,6 +267,12 @@ nav{
         display: none;
     
       }
+}
+
+@media screen and (max-width: 1500px) {
+    .gallery img {
+        height: 15em;
+    }
 }
 
 @media screen and (max-width: 1200px) {
