@@ -13,19 +13,35 @@ a {
     text-decoration: none;
 }
 
-.resources {
+.info-section {
     width: 100%;
-    height: 5em;
     background: white;
     flex-shrink: 0;
-    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.resources {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .resources .search-bar {
-    position: absolute;
     box-sizing: border-box;
-    right: 20%;
-    top: 15%;
+    margin: 1em 0;
+}
+
+.select-order {
+    border: none;
+    height: fit-content;
+    font-size: large;
+    cursor: pointer;
+}
+
+.select-order:focus {
+    outline: none;
 }
 
 .search-bar input {
@@ -80,9 +96,13 @@ a {
     border: 1px solid #ddd; 
     border-radius: 4px;
     padding: 3px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .gallery .gallery__thumbnail a {
     color: rgb(61, 123, 255);
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 1em;
 }
 
 .gallery .gallery__thumbnail a:hover {
@@ -91,7 +111,7 @@ a {
 
 .gallery img {
     width: 100%;
-    height: 15em;
+    height: 20em;
     object-fit: cover;
     object-position: bottom;
 }
@@ -249,6 +269,12 @@ nav{
       }
 }
 
+@media screen and (max-width: 1500px) {
+    .gallery img {
+        height: 15em;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .gallery .gallery__thumbnail {
         width: 45%;
@@ -267,5 +293,15 @@ nav{
 @media screen and (max-width: 700px) {
     .gallery img {
         height: 20em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gallery img {
+        height: 15em;
+    }
+
+    .resources {
+        flex-direction: column;
     }
 }
