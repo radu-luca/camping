@@ -115,7 +115,8 @@ nav{
       position: relative;
       width: 60%;
    border-style: solid;
-   border-color: black;
+   border-color: rgb(255, 0, 0);
+   border-width:1px;
    border-top: unset;
    border-bottom: unset;
       margin:0 auto;
@@ -123,8 +124,7 @@ nav{
   }
   .main-container{
       width: 100%;
-      
-      margin: 0 auto;
+      /* margin: 0 auto; */
   }
  .camp-pictures{
     position: relative;
@@ -140,7 +140,10 @@ nav{
       
   }
   .camp-pictures img{
-      width: 100%;
+      width: 80%;
+
+      border: 2px double #ddd; 
+      border-radius: 4px;
       height: 60vh;
   }
   .camp-pictures .previous{ 
@@ -158,10 +161,57 @@ nav{
 }
 .descript-camps{
     position: relative;
-    text-align: center;
+    text-align: left;
+    padding-left: 2em;
     margin-top: 10vh;
 }
- 
+ .description-box{
+     border: 1px solid black;
+     margin-top: 0;
+     padding-right: 0.5em;
+
+ }
+
+ .label-descript{
+  margin-bottom:0; 
+ }
+ .camp-name{
+     text-align: center;
+ }
+ .rating-container{
+     display: inline;
+ }
+ .comment-section{
+     width:100%;
+    
+ }
+ .comment-section textarea{
+     width: 98%;
+     margin-left: 5px;
+     height: 100px;
+     
+     resize: none;
+ }
+.submit-button{
+    background-color: rgb(255,0,0);
+    border-radius: 4px;
+    color: antiquewhite;
+    position:relative;
+ margin:0 auto;
+    font-size: 1.5rem;
+}
+.added-reviews{
+    padding-right: 1em;
+    padding-left:1em;
+}
+.single-review{
+    padding-left:1em;
+   margin: auto;
+   background-color: #FFF;
+    box-shadow:  0 0 5px;
+  
+}
+
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
         display: none;
