@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles/profileDashboardStyles.css">
+</head>
+<body>
+    <header class="app__header">
+        <div class="navbar">
+            <div class="left__header">
+                <a href="./index.html">
+                    <h3 class="logo left-header-btn">YelpCamp</h3>
+                </a>
+                <a href="">
+                    <span class="left-header-btn-links">Campgrounds</span>
+                </a>
+                <a href="">
+                    <span class="left-header-btn-links">About</span>
+                </a>
+                <a href="">
+                    <span class="left-header-btn-links">New</span>
+                </a>
+    
+            </div>
+    
+            <div class="right__header">
+                <a href="./login.html">
+                    <span class="right-header-btn">Login</span>
+                </a>
+                <a href="./register.html">
+                    <span class="right-header-btn">Sign Up</span>
+                </a>
+            </div>
+        </div>
+        <button class="menuBtn" id="menuBtn" type="button"> Menu </button>
+    </header>
+    <nav id="navPanel">
+        <ol class="navbar-links">
+          <li>
+            <a href="">Campgrounds</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">News</a>
+          </li>
+          <li>
+            <a href="./login.html">Login</a>
+          </li>
+          <li>
+            <a href="./register.html">Sign Up</a>
+          </li>
+  
+        </ol>
+        
+    </nav>    
+    <div class="central-part">
+        <main>
+            <div class="left__side">
+                <div class="avatar-thumbnail">
+                    <img src="./images/default_avatar.png" alt="">
+                    <h3>Bob Bush</h3>
+                </div>
+            </div>
+    
+            <div class="right__side">
+                <h1>Bob Bush's DASHBOARD</h1>
+                <form action="">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="">
+                                FirstName
+                            </label>
+                            <input type="text" readonly value="Bob">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="">
+                                LastName
+                            </label>
+                                <input type="text" readonly value="Bush">
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="">
+                                Sex
+                            </label>
+                            <input type="text" readonly value="Male">
+                        </div>
+                        <div class="form-group">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <input type="date" readonly value="2000-01-01">
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="">
+                                Email
+                            </label>
+                                <input type="email" readonly value="bush.bob@gmail.com">
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="">
+                                Address
+                            </label>
+                            <input type="text" readonly value="Iasi">
+                        </div>
+                        <div class="form-group">
+                            <label for="">
+                                State
+                            </label>
+                                <input type="text" readonly value="Iasi">
+                        </div>
+                        <div class="form-group">
+                            <label for="">
+                                Country
+                            </label>
+                                <input type="text" readonly value="Romania">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        <button class="edit-btn">EDIT</button>
+
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <footer class="app_footer">
+        <div class="about-us">
+            <a href="" class="footer-btn">
+                About Us
+            </a> 
+        </div>
+
+        <div class="contact">
+            <a href="" class="footer-btn">
+                Contact
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

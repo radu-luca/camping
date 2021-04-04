@@ -294,8 +294,8 @@ nav{
     }
 
     .btn-allCamps {
-        left: auto;
-        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
