@@ -108,9 +108,13 @@ a {
 }
 
 .edit-btn:hover {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: rgb(250, 0, 50);
     color: white;
+}
+
+.edit-btn:focus {
+    outline: none;
 }
  
 .app__header{
