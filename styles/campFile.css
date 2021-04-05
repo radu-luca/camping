@@ -112,8 +112,7 @@ nav{
   
   }
   .main-center {
-      position: relative;
-      width: 60%;
+     display: flex;
    border-style: solid;
    border-color: rgb(255, 0, 0);
    border-width:1px;
@@ -122,15 +121,21 @@ nav{
       margin:0 auto;
       
   }
-  .main-container{
-      width: 100%;
-      /* margin: 0 auto; */
+  .center-container{
+      width: 50%;
+      padding-left:1em;
+     margin-right: 1em;
   }
  .camp-pictures{
     position: relative;
     text-align: center;
    
    
+  }
+  .left-side{
+      width: 25%;
+      height: 100%;
+      background-color: red;
   }
   .pictures-buttons{
       position: relative;
@@ -162,13 +167,15 @@ nav{
 .descript-camps{
     position: relative;
     text-align: left;
-    padding-left: 2em;
     margin-top: 10vh;
 }
  .description-box{
      border: 1px solid black;
      margin-top: 0;
-     padding-right: 0.5em;
+  
+     border-color: rgb(255,0,0);
+     border-radius: 4px;
+     background-color: white;
 
  }
 
@@ -186,8 +193,8 @@ nav{
     
  }
  .comment-section textarea{
-     width: 98%;
-     margin-left: 5px;
+     width: 100%;
+border-radius: 4px;
      height: 100px;
      
      resize: none;
@@ -200,16 +207,20 @@ nav{
  margin:0 auto;
     font-size: 1.5rem;
 }
-.added-reviews{
-    padding-right: 1em;
-    padding-left:1em;
-}
+
+
+
 .single-review{
-    padding-left:1em;
-   margin: auto;
+padding-left:1em;
+margin: auto;
    background-color: #FFF;
     box-shadow:  0 0 5px;
+    border-radius: 4px;
   
+}
+.right-side{
+    width: 25%;
+    background-color: rgb(255,0,0);
 }
 
 @media screen and (max-width: 620px) {
