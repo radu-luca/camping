@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     background: whitesmoke;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 body {
@@ -221,6 +222,10 @@ margin: auto;
 .right-side{
     width: 25%;
     background-color: rgb(255,0,0);
+}
+.choose-files{
+    border-radius: 4px;
+    
 }
 
 @media screen and (max-width: 620px) {
