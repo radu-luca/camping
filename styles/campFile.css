@@ -82,8 +82,7 @@ nav{
     position: absolute;
     top:3.7em;
     right:0;
-    transform: translateX(+100%);
-    transition: transform 1s cubic-bezier(0, 1.01, 0.58, 1);
+    display: none;
     background-color:red;
     
   }
@@ -109,7 +108,7 @@ nav{
     margin:0;
   }
   nav.is--open {
-    transform: translateX(0);
+    display:unset;
   
   }
   .main-center {
@@ -134,9 +133,10 @@ nav{
    
   }
   .left-side{
-      width: 25%;
+      width: 40%;
       height: 100%;
-      background-color: red;
+     border-right:1px solid black;
+     background-color: #FC4445;
   }
   .pictures-buttons{
       position: relative;
@@ -145,12 +145,12 @@ nav{
       
       
   }
-  .camp-pictures img{
+  .camp-pictures #photocamp{
       width: 80%;
 
       border: 2px double #ddd; 
       border-radius: 4px;
-      height: 60vh;
+      height: 40%;
   }
   .camp-pictures .previous{ 
   display: block;
@@ -173,7 +173,7 @@ nav{
  .description-box{
      border: 1px solid black;
      margin-top: 0;
-  
+  padding-left: 0.5em;
      border-color: rgb(255,0,0);
      border-radius: 4px;
      background-color: white;
@@ -187,8 +187,10 @@ nav{
      text-align: center;
  }
  .rating-container{
-     display: inline;
+     display: flex;
+     
  }
+ 
  .comment-section{
      width:100%;
     
@@ -220,8 +222,8 @@ margin: auto;
   
 }
 .right-side{
-    width: 25%;
-    background-color: rgb(255,0,0);
+    width: 10%;
+    background-color: #FC4445;
 }
 .choose-files{
     width: 0.1px;
@@ -245,16 +247,16 @@ margin: auto;
 }
 .modal {
     display: none; 
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
   }
   .close {
     position: absolute;
@@ -275,10 +277,26 @@ margin: auto;
   .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    width: 80vw;
+   max-width: 1000px;
   }
-
+.modal .next{
+   position:relative;
+   right: 12vw;
+   font-size: 3rem;
+}
+.modal .previous{
+    position: relative;
+    left:12vw;
+    font-size: 3rem;
+}
+.map {
+    position: relative;
+    height: 200px;
+   width: 90%;
+   left: 1.5em;
+   top:1.5em;
+  }
 
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
@@ -291,6 +309,25 @@ margin: auto;
         display: block;
         
       }
+ .rating-container{
+    flex-direction: column;
+ }
+ .main-center{
+     flex-direction: column;
+     
+ }
+ .right-side{
+     width: 100%;
+  height: 30vh;
+ }
+ .left-side{
+     width: 100%;
+   
+ }
+ .center-container{
+width: 90%;
+order: -1;
+ }
  
    
 }
