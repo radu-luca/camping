@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/campFile.css"> 
+    <link rel="stylesheet" href="styles/campFile.css">
 
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
     <title>Campground</title>
 </head>
+
 <body>
     <header class="app__header">
         <div class="navbar">
@@ -25,9 +27,9 @@
                 <a href="">
                     <span class="left-header-btn-links">New</span>
                 </a>
-    
+
             </div>
-    
+
             <div class="right__header">
                 <a href="">
                     <span class="right-header-btn">Login</span>
@@ -41,109 +43,136 @@
     </header>
     <nav id="navPanel">
         <ol class="navbar-links">
-          <li>
-            <a href="">Campgrounds</a>
-          </li>
-          <li>
-            <a href="">About</a>
-          </li>
-          <li>
-            <a href="">News</a>
-          </li>
-          <li>
-            <a href="">Login</a>
-          </li>
-          <li>
-            <a href=" ">Sign Up</a>
-          </li>
-  
+            <li>
+                <a href="">Campgrounds</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">News</a>
+            </li>
+            <li>
+                <a href="">Login</a>
+            </li>
+            <li>
+                <a href=" ">Sign Up</a>
+            </li>
+
         </ol>
-        
-      </nav>
-      <div class="main-center">
-          <div class="left-side">
-              <label for="map">Location</label>
+
+    </nav>
+    <div class="main-center">
+        <div class="left-side">
+            <div class="contact-box">
+                    <div>Contact</div>
+                    <p>0764343233</p>
+            </div>
+            <div>
             <div id="map" class="map"></div>
+            <label for="map"> Podklopca 5A, 5230 Bovec, Slovenia</label>
+        </div>
+        </div>
 
-</div>
-         
-          <div class="center-container">
-          <div class="camp-pictures">
-            <img  id="photocamp" alt="Poza" src="https://cincinnatiusa.com/sites/default/files/styles/article_full/public/attractionphotos/Winton%20Woods%20Campground.JPG?itok=Iytm6OhO">
-            <div id="myModal" class="modal">
+        <div class="center-container">
+            <div class="camp-about">
+                <div class="camp-pictures">
+                    <img id="photocamp" alt="Poza"
+                        src="https://cincinnatiusa.com/sites/default/files/styles/article_full/public/attractionphotos/Winton%20Woods%20Campground.JPG?itok=Iytm6OhO">
+                    <div id="myModal" class="modal">
 
-                <span class="close">&times;</span>
-    
-                <img class="modal-content" id="img01">
-                <span>
-                    <a class="previous" href="#pic5">&lt;</a>
-                    <a class="next" href="#pic2">&gt;</a>
-                </span>
-              </div>
-            <div class="pictures-buttons">
-                <a class="previous" href="#pic5">&lt;</a>
-                <a class="next" href="#pic2">&gt;</a>
+                        <span class="close">&times;</span>
+
+                        <img class="modal-content" id="img01">
+                        <span>
+                            <a class="previous" href="#pic5">&lt;</a>
+                            <a class="next" href="#pic2">&gt;</a>
+                        </span>
+                    </div>
+                    <div class="pictures-buttons">
+                        <a class="previous" href="#pic5">&lt;</a>
+                        <a class="next" href="#pic2">&gt;</a>
+                    </div>
+                </div>
+
+                <div class="descript-camps">
+                    <span class="price-label">
+                        <p class="camp-name"> Desoto Park</p>
+                        <p>10$/day</p>
+                    </span>
+                    <div class="rating-container">
+                        <input type="radio" id="starCamp5" name="starCamp" value="1" readonly><label
+                            for="starCamp5"></label></span>
+                        <input type="radio" id="starCamp4" name="starCamp" value="2" checked="checked" readonly><label
+                            for="starCamp4"></label></span>
+                        <input type="radio" id="starCamp3" name="starCamp" value="3" readonly><label
+                            for="starCamp3"></label></span>
+                        <input type="radio" id="starCamp2" name="starCamp" value="4" readonly><label
+                            for="starCamp2"></label></span>
+                        <input type="radio" id="starCamp1" name="starCamp" value="5" readonly><label
+                            for="starCamp1"></label></span>
+
+                    </div>
+                    <p class="description-box">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Cupiditate enim, consectetur, sunt iste accusantium, ad illum nihil consequuntur aperiam maxime
+                        magnam velit aliquid quod molestiae odit dolores omnis! Nam, porro.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="review-section">
+                <button class="review-btn" onclick="showReview()">Leave a review</button>
+                <form action=" " class="review-form" id="review-form">
+                    <p>Rating</p>
+                    <div class="rating-container">
+
+                        <input type="radio" id="star1" name="star" value="1"><label for="star1"></label></span>
+                        <input type="radio" id="star2" name="star" value="2"><label for="star2"></label></span>
+                        <input type="radio" id="star3" name="star" value="3"><label for="star3"></label></span>
+                        <input type="radio" id="star4" name="star" value="4"><label for="star4"></label></span>
+                        <input type="radio" id="star5" name="star" value="5"><label for="star5"></label></span>
+
+                    </div>
+                    <div class="comment-section">
+                        <h4 style="margin-bottom: 1px;">Comment</h4>
+                        <textarea id="comment-box" placeholder="Enter your comment" required></textarea>
+
+                    </div>
+                    <input class="choose-files" type="file" id="choose-files" name="choose-files"
+                        accept="image/*|video/*|audio/*">
+                    <label for="choose-files"> Add some photo or video</label>
+                 <div>
+                        <button type="submit" class="submit-button">Send review</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="added-reviews">
+                    <label> <b>Reviews</b></label>
+                    
+                    <div class="single-review2">
+                        <div class="avatar">
+                            <img alt="Smith" src="images/default_avatar.png">
+                        <h4>Alfred Michel</h4>
+                    </div>
+                    <div class="user-review">
+                        <p><b>Rating: </b>4</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum accusamus ad consequuntur
+                            beatae ratione, cumque architecto voluptas suscipit similique esse? Vel consequuntur
+                            adipisci tempora quia ab cupiditate repellat at odit.</p>
+                        </div>
+                    </div>
+                
+                </div>
             </div>
         </div>
-     
-      <div class="descript-camps">
-         <h3 class="camp-name"> CampGround Name</h3>
-         <span class="price-label"><b>Price</b>: 10$/day</span>
-         <h4 class="label-descript">Description</h5>
-         <p class="description-box">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-             Cupiditate enim, consectetur, sunt iste accusantium, ad illum nihil consequuntur aperiam maxime magnam velit aliquid quod molestiae odit dolores omnis! Nam, porro.</p>
-      </div>
-    
-      <hr>
-      <div class="review-section">
-          <form action=" " class="review-form">
-              <div class="rating-container">
-          <b> Rating:</b>
-           <span><input type="radio" id="rating1" name="rating" value="1" checked="checked"><label for="rating1">1</label></span>
-           
-           <span><input type="radio" id="rating2" name="rating" value="2"><label for="rating2">2</label></span>
-            
-           <span><input type="radio" id="rating3" name="rating" value="3"><label for="rating3">3</label></span>
-           <span><input type="radio" id="rating4" name="rating" value="4"><label for="rating4">4</label></span>
-           <span><input type="radio" id="rating5" name="rating" value="5"><label for="rating5">5</label></span>
-            
-        </div>
-        <div class="comment-section">
-            <h4 style="margin-bottom: 1px;">Comment</h4>
-            <textarea id="comment-box" placeholder="Enter your comment" required></textarea>
+        <div class="right-side">
 
-        </div>
-        <input  class="choose-files" type="file"  id="choose-files" name="choose-files" accept="image/*|video/*|audio/*">
-        <label for="choose-files"> Add some photo or video</label>
-        <div style="display: flex;align-items: center;">
-        <button type="submit" class="submit-button">Send review</button>
-        </div>
-        </form>
-        <hr>
-        <div class="added-reviews">
-            <label> <b>Reviews</b></label>
-          <div class="single-review">
-             <h4>Alfred Michel</h4>
-             <p><b>Rating: </b>4</p>
-             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum accusamus ad consequuntur beatae ratione, cumque architecto voluptas suscipit similique esse? Vel consequuntur adipisci tempora quia ab cupiditate repellat at odit.</p>
-          </div>
-          <div class="single-review">
-            <h4>Marlin Monroe</h4>
-            <p><b>Rating: </b>3</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum accusamus ad consequuntur beatae ratione, cumque architecto voluptas suscipit similique esse? Vel consequuntur adipisci tempora quia ab cupiditate repellat at odit.</p>
-         </div>
         </div>
     </div>
-      </div>
-      <div class="right-side">
-
-      </div>
-      </div>
-      <footer class="app_footer">
+    <footer class="app_footer">
         <div class="about-us">
             <a href="" class="footer-btn">
                 About Us
-            </a> 
+            </a>
         </div>
 
         <div class="contact">
@@ -152,8 +181,9 @@
             </a>
         </div>
     </footer>
-<script src="js/app.js"></script>
-<script src="js/campFile.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/campFile.js"></script>
 
 </body>
+
 </html>
