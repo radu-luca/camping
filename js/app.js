@@ -20,7 +20,7 @@ if(navPanel.classList.contains("is--open")){navPanel.classList.remove("is--open"
 }
 }
 function hideCollapsedNavBar(){
-    let w=window.innerWidth;
+   let w=window.innerWidth;
     if(w>620){
 
          if(navPanel.classList.contains("is--open")){navPanel.classList.remove("is--open");
@@ -53,3 +53,5 @@ function addHiddenClass() {
 
     
 }
+
+

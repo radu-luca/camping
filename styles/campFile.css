@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     background: whitesmoke;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 body {
@@ -81,8 +82,7 @@ nav{
     position: absolute;
     top:3.7em;
     right:0;
-    transform: translateX(+100%);
-    transition: transform 1s cubic-bezier(0, 1.01, 0.58, 1);
+    display: none;
     background-color:red;
     
   }
@@ -108,12 +108,11 @@ nav{
     margin:0;
   }
   nav.is--open {
-    transform: translateX(0);
+    display:unset;
   
   }
   .main-center {
-      position: relative;
-      width: 60%;
+     display: flex;
    border-style: solid;
    border-color: rgb(255, 0, 0);
    border-width:1px;
@@ -122,15 +121,22 @@ nav{
       margin:0 auto;
       
   }
-  .main-container{
-      width: 100%;
-      /* margin: 0 auto; */
+  .center-container{
+      width: 50%;
+      padding-left:1em;
+     margin-right: 1em;
   }
  .camp-pictures{
     position: relative;
     text-align: center;
    
    
+  }
+  .left-side{
+      width: 40%;
+      height: 100%;
+     border-right:1px solid black;
+     background-color: #FC4445;
   }
   .pictures-buttons{
       position: relative;
@@ -139,12 +145,12 @@ nav{
       
       
   }
-  .camp-pictures img{
+  .camp-pictures #photocamp{
       width: 80%;
 
       border: 2px double #ddd; 
       border-radius: 4px;
-      height: 60vh;
+      height: 40%;
   }
   .camp-pictures .previous{ 
   display: block;
@@ -162,13 +168,15 @@ nav{
 .descript-camps{
     position: relative;
     text-align: left;
-    padding-left: 2em;
     margin-top: 10vh;
 }
  .description-box{
      border: 1px solid black;
      margin-top: 0;
-     padding-right: 0.5em;
+  padding-left: 0.5em;
+     border-color: rgb(255,0,0);
+     border-radius: 4px;
+     background-color: white;
 
  }
 
@@ -179,15 +187,17 @@ nav{
      text-align: center;
  }
  .rating-container{
-     display: inline;
+     display: flex;
+     
  }
+ 
  .comment-section{
      width:100%;
     
  }
  .comment-section textarea{
-     width: 98%;
-     margin-left: 5px;
+     width: 100%;
+border-radius: 4px;
      height: 100px;
      
      resize: none;
@@ -200,17 +210,93 @@ nav{
  margin:0 auto;
     font-size: 1.5rem;
 }
-.added-reviews{
-    padding-right: 1em;
-    padding-left:1em;
-}
+
+
+
 .single-review{
-    padding-left:1em;
-   margin: auto;
+padding-left:1em;
+margin: auto;
    background-color: #FFF;
     box-shadow:  0 0 5px;
+    border-radius: 4px;
   
 }
+.right-side{
+    width: 10%;
+    background-color: #FC4445;
+}
+.choose-files{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+    
+}
+.choose-files + label{
+    font-size: 1.25em;
+    font-weight: 700;
+
+    display: inline-block;
+
+}
+.choose-files + label:hover{
+    background-color: white;
+    color:rgb(250, 0, 50);
+
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+  }
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80vw;
+   max-width: 1000px;
+  }
+.modal .next{
+   position:relative;
+   right: 12vw;
+   font-size: 3rem;
+}
+.modal .previous{
+    position: relative;
+    left:12vw;
+    font-size: 3rem;
+}
+.map {
+    position: relative;
+    height: 200px;
+   width: 90%;
+   left: 1.5em;
+   top:1.5em;
+  }
 
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
@@ -223,6 +309,25 @@ nav{
         display: block;
         
       }
+ .rating-container{
+    flex-direction: column;
+ }
+ .main-center{
+     flex-direction: column;
+     
+ }
+ .right-side{
+     width: 100%;
+  height: 30vh;
+ }
+ .left-side{
+     width: 100%;
+   
+ }
+ .center-container{
+width: 90%;
+order: -1;
+ }
  
    
 }
