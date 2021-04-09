@@ -91,9 +91,20 @@
                     <div>Contact</div>
                     <p>0764343233</p>
             </div>
+            <div class="utilities-box">
+                <div >Utilities</div>
+                <ol>
+                     <li>Wi-Fi</li>
+                     <li>Free water</li>
+                     <li>Shop</li>
+                    <li>Fire-Wood</li>
+                    
+                </ol>
+
+            </div>
             <div>
             <div id="map" class="map"></div>
-            <label for="map"> Podklopca 5A, 5230 Bovec, Slovenia</label>
+            <span class="map-location"> Podklopca 5A, 5230 Bovec, Slovenia</span>
         </div>
         </div>
 
@@ -106,53 +117,56 @@
 
                         <span class="close">&times;</span>
 
-                        <img class="modal-content" id="img01">
+                        <img class="modal-content" id="img01" src="https://cincinnatiusa.com/sites/default/files/styles/article_full/public/attractionphotos/Winton%20Woods%20Campground.JPG?itok=Iytm6OhO" alt="CampPhoto">
                         <span>
                             <a class="previous" href="#pic5">&lt;</a>
                             <a class="next" href="#pic2">&gt;</a>
                         </span>
                     </div>
-                    <div class="pictures-buttons">
-                        <a class="previous" href="#pic5">&lt;</a>
-                        <a class="next" href="#pic2">&gt;</a>
-                    </div>
+                    
+                       <div class="previous"> <a  href="">&#8249;</a></div>
+                       <div class="next"><a  href="">&#8250;</a></div> 
+                  
                 </div>
 
                 <div class="descript-camps">
                     <span class="price-label">
-                        <p class="camp-name"> Desoto Park</p>
-                        <p>10$/day</p>
+                        <span class="camp-name"> Desoto Park</span>
+                        <span>10$/day</span>
                     </span>
                     <div class="rating-container">
-                        <input type="radio" id="starCamp5" name="starCamp" value="1" readonly><label
-                            for="starCamp5"></label></span>
-                        <input type="radio" id="starCamp4" name="starCamp" value="2" checked="checked" readonly><label
-                            for="starCamp4"></label></span>
-                        <input type="radio" id="starCamp3" name="starCamp" value="3" readonly><label
-                            for="starCamp3"></label></span>
-                        <input type="radio" id="starCamp2" name="starCamp" value="4" readonly><label
-                            for="starCamp2"></label></span>
-                        <input type="radio" id="starCamp1" name="starCamp" value="5" readonly><label
-                            for="starCamp1"></label></span>
+                        <input type="radio" id="starCamp5" name="starCamp" value="1"><label
+                            for="starCamp5"></label>
+                        <input type="radio" id="starCamp4" name="starCamp" value="2" checked="checked"><label
+                            for="starCamp4"></label>
+                        <input type="radio" id="starCamp3" name="starCamp" value="3"><label
+                            for="starCamp3"></label>
+                        <input type="radio" id="starCamp2" name="starCamp" value="4"><label
+                            for="starCamp2"></label>
+                        <input type="radio" id="starCamp1" name="starCamp" value="5"><label
+                            for="starCamp1"></label>
 
                     </div>
                     <p class="description-box">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         Cupiditate enim, consectetur, sunt iste accusantium, ad illum nihil consequuntur aperiam maxime
                         magnam velit aliquid quod molestiae odit dolores omnis! Nam, porro.</p>
                 </div>
+                <label for="reservation-input">Book Now</label>
+
+<input type="date" id="reservation-input" name="trip-start" value="2021-04-10" min="2021-04-10" max="2023-12-ss31">
             </div>
             <hr>
             <div class="review-section">
                 <button class="review-btn" onclick="showReview()">Leave a review</button>
-                <form action=" " class="review-form" id="review-form">
+                <form action="/" class="review-form" id="review-form">
                     <p>Rating</p>
                     <div class="rating-container">
 
-                        <input type="radio" id="star1" name="star" value="1"><label for="star1"></label></span>
-                        <input type="radio" id="star2" name="star" value="2"><label for="star2"></label></span>
-                        <input type="radio" id="star3" name="star" value="3"><label for="star3"></label></span>
-                        <input type="radio" id="star4" name="star" value="4"><label for="star4"></label></span>
-                        <input type="radio" id="star5" name="star" value="5"><label for="star5"></label></span>
+                        <input type="radio" id="star1" name="star" value="1"><label for="star1"></label>
+                        <input type="radio" id="star2" name="star" value="2"><label for="star2"></label>
+                        <input type="radio" id="star3" name="star" value="3"><label for="star3"></label>
+                        <input type="radio" id="star4" name="star" value="4"><label for="star4"></label>
+                        <input type="radio" id="star5" name="star" value="5"><label for="star5"></label>
 
                     </div>
                     <div class="comment-section">
@@ -161,7 +175,7 @@
 
                     </div>
                     <input class="choose-files" type="file" id="choose-files" name="choose-files"
-                        accept="image/*|video/*|audio/*">
+                        accept="image/* , video/* ,audio/*">
                     <label for="choose-files"> Add some photo or video</label>
                  <div>
                         <button type="submit" class="submit-button">Send review</button>
@@ -191,11 +205,9 @@
 
         </div>
     </div>
-      </div>
-      <div class="right-side">
-
-      </div>
-      </div>
+      
+      
+      
       <footer class="app_footer">
         <ul>
             <li>

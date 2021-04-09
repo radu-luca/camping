@@ -146,41 +146,67 @@ nav{
  .camp-pictures{
     position: relative;
     text-align: center;
-   
+   width: 100%;
+   height: 100%;
    
   }
   .left-side{
       width: 30%;
       height: 100%;
-     align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     
   }
-  .pictures-buttons{
-      position: relative;
+  
+ #photocamp{
       width: 80%;
-      margin:0 auto;
-      
-      
-  }
-  .camp-pictures #photocamp{
-      width: 80%;
-
       border: 2px double #ddd; 
       border-radius: 4px;
-      height: 40%;
+      height: 50%;
   }
-  .camp-pictures .previous{ 
-  display: block;
-  float: left;
-    text-decoration:none;
- font-size: 2rem;
-} 
+ 
+  .camp-pictures  .previous{ 
+  position: absolute;
+background-color: black;
+opacity: 0.2;
+width: 10%;
+height: 98.5%;
+bottom: 0;
+right: 80.2%;
+margin-bottom: 0.3em;
+display: flex;
+justify-content: center;
+align-items: center;
 
-.camp-pictures .next{ 
-    display: block;
-    float:right;
-    text-decoration:none;
-    font-size: 2rem;
+} 
+.camp-pictures  .next{ 
+    position: absolute;
+  background-color: black;
+  opacity: 0.2;
+  width: 10%;
+  height: 98.5%;
+  bottom: 0;
+  right: 10%;
+  margin-bottom: 0.3em;
+  display: flex;
+justify-content: center;
+align-items: center;
+  
+  }
+.camp-pictures .previous a,.camp-pictures .next a{
+    position: relative;
+font-size: 8em;
+ opacity: 1;
+ color:white;
+    
 }
+.previous:hover,.next:hover{
+    opacity: 0.4;
+}
+
+
+
 .descript-camps{
     position: relative;
     text-align: left;
@@ -327,7 +353,7 @@ margin: auto;
 }
 .right-side{
     width: 10%;
-    /* background-color: #FC4445; */
+    
 }
 .choose-files{
     width: 0.1px;
@@ -401,16 +427,19 @@ margin: auto;
    left: 1.5em;
    top:1.5em;
   }
-  .contact-box{
+  .contact-box,.utilities-box{
    position: relative;
-   left: 25%;
-   margin-top: 15px;
+   width: 60%;
+  
+   
+  
+   
   }
-  .contact-box div{
+  .contact-box div,.utilities-box div{
       background-color: whitesmoke;
       border: 1px solid black;
       border-radius: 4px;
-      width: 60%;
+    
       text-align: center;
       padding-bottom: 0;
       margin-bottom: 0;
@@ -418,19 +447,35 @@ margin: auto;
     border-bottom-left-radius: 0;
     font-weight: bold;
   }
+
   .contact-box p{
-      background-color: white;
-      width: 60%;
-      border: 1px solid black;
-      border-radius: 4px;
-      border-top:none;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    border-top:none;
 padding-top: 0;
 margin-top: 0;
 border-top-right-radius: 0;
 border-top-left-radius: 0;
       text-align: center;
   }
-  .left-side div label{
+  .utilities-box ol{
+    background-color: white;
+  
+    border: 1px solid black;
+     border-radius: 4px;
+    border-top:none;
+padding-top: 0;
+margin-top: 0;
+border-top-right-radius: 0;
+border-top-left-radius: 0; 
+    
+  }
+  .utilities-box ol li {
+      list-style-type: disc;
+  }
+  
+  .left-side div span{
       position: relative;
       border:0.5px solid gray;
       font-weight: bold;
