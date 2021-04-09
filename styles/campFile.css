@@ -457,7 +457,8 @@ margin: auto;
 
   }
   .single-review2 .avatar img{
-      width: 100%;
+      width: 100px;
+    height: 100px;
       border-radius: 100px;
   }
 
