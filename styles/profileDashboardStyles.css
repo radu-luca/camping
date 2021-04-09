@@ -12,6 +12,23 @@ a {
     text-decoration: none;
 }
 
+.app_footer, .app__header {
+    font-family: 'Roboto', sans-serif;
+}
+
+.app__header ul, .app_footer ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;    
+    padding: 0;
+}
+
+.app__header li:hover, .app_footer li:hover {
+    transform: scale(1.1);
+    transition: all 150ms linear;
+}
+
 .navbar {
     width: 75%;
     display: flex;
