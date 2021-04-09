@@ -7,10 +7,28 @@ a {
     text-decoration: none;
 }
 
-[role=directory] ol, ol[role=directory] {
+ol{
     list-style-type: none;
 }
 
 code {
     font-family: Roboto Mono,monospace;
+}
+h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-top: 2.5em;
+    margin-left: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: .0375em;
+}
+
+h2 {
+    margin-top: 3em;
+}
+
+h1, h2 {
+    color: #4b0061;
 }

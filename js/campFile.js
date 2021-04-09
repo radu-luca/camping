@@ -26,7 +26,19 @@ var map = new ol.Map({
       })
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([37.41, 8.82]),
+      center: ol.proj.fromLonLat([ 13.503021929827879,46.32231094618193]),
       zoom: 4
     })
   });
+
+
+  //review show
+  function showReview() {
+    let x = document.getElementById("review-form");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      
+    } else {
+      x.style.display = "none";
+    }
+  }

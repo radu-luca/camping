@@ -154,6 +154,9 @@ a {
     width: 500px;
     text-align: center;
  }
+ textarea {
+     resize: none;
+ }
  .input_inline{
     margin: 0.5em;
     border-radius: 4px;
