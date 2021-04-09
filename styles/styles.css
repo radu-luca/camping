@@ -77,10 +77,8 @@ button:focus {
     left: 60%;
     margin: 3em 0;
     cursor: pointer;
-}
-
-.btn-allCamps h3 {
-    margin: 0;
+    font-size: 1.25em;
+    font-weight: 600;
 }
 
 .btn-allCamps:hover {
@@ -102,14 +100,15 @@ button:focus {
     padding: 3px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
-.gallery .gallery__thumbnail a {
+
+.gallery .gallery__thumbnail span {
     color: rgb(61, 123, 255);
     font-size: 1.5em;
     display: inline-block;
     margin: 1em;
 }
 
-.gallery .gallery__thumbnail a:hover {
+.gallery .gallery__thumbnail:hover span{
     text-decoration: underline;
 }
 
@@ -119,7 +118,6 @@ button:focus {
     object-fit: cover;
     object-position: bottom;
 }
-
 
 .gallery .gallery__thumbnail:hover {
     opacity: 0.7;
