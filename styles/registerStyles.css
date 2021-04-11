@@ -234,6 +234,27 @@ a {
     font-size: small;
 }
 
+.git-btn{
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: #444;
+    border-color: #444;
+    border: 1px solid transparent;
+    padding: .1rem .75rem;
+    font-size: 1em;
+    line-height: 1.5;
+    border-radius: .25rem;
+    cursor: pointer;
+    margin-top: 0.3em;
+    display: flex;
+    align-items: center;
+}
+.git-btn img {
+    width: 10%;
+    height: 10%;
+    margin-right: 0.7em;
+}
 @media screen and (max-width: 620px) {
     .left-header-btn-links,.right-header-btn{
         display: none;
