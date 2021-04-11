@@ -7,8 +7,6 @@
     <title>Scholarly HTML</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="styles/aboutstyle.css">
-
-    <link rel="stylesheet" href="./styles/about.css">
 </head>
 
 <body prefix="schema: http://schema.org">
@@ -30,7 +28,16 @@
             </li>
             <li><a href="#External-Interface-Requirements"><span>3. </span>External Interface Requirements</a>
                 <ol role="directory">
-                    <li><a href="#User-Interfaces"><span>3.1 </span> User Interfaces</a></li>
+                    <li><a href="#User-Interfaces"><span>3.1 </span> User Interfaces</a>
+                        <ol role="directory">
+                            <li><a href="#create-account"><span>3.1.1 </span>How to create an account</a></li>
+                            <li><a href="#manage-account"><span>3.1.2 </span>How to manage your account</a></li>
+                            <li><a href="#add-camp"><span>3.1.3 </span>How to add a new campground</a></li>
+                            <li><a href="#info-camp"><span>3.1.4 </span>Campground information</a></li>
+                            <li><a href="#book-info"><span>3.1.5 </span>How to make a camping reservation</a></li>
+                            <li><a href="#review-info"><span>3.1.6 </span>Add a review</a></li>
+                        </ol>
+                    </li>
                 </ol>
             </li>
         
@@ -44,9 +51,7 @@
                         <meta property="schema:familyName" content="Radu">
                         <span property="schema:name">Luca Radu</span>
                     </span>
-                    <!-- <a href="#sf" property="sa:roleAffiliation" resource="http://www.santafe.edu/">a</a>,
-                <a href="#umich" property="sa:roleAffiliation" resource="http://umich.edu/">b</a>,
-                <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a> -->
+                
                     <ul>
                         <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
                             <a href="mailto:radulucapay@gmail.com" property="schema:email">radulucapay@gmail.com</a>
@@ -55,33 +60,28 @@
                 </li>
 
                 <li typeof="sa:ContributorRole" property="schema:author">
-                    <span typeof="schema:Person" resource="fb.com/radu-luca">
+                    <span typeof="schema:Person" resource="fb.com/dorin-cheptanariu">
                         <meta property="schema:givenName" content="Dorin">
                         <meta property="schema:familyName" content="Cheptanariu">
                         <span property="schema:name">Dorin Cheptanariu</span>
                     </span>
-                    <!-- <a href="#sf" property="sa:roleAffiliation" resource="http://www.santafe.edu/">a</a>,
-                <a href="#umich" property="sa:roleAffiliation" resource="http://umich.edu/">b</a>,
-                <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a> -->
+                    
                     <ul>
                         <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                            <a href="mailto:radulucapay@gmail.com" property="schema:email">radulucapay@gmail.com</a>
+                            <a href="mailto:cheptanariudorin@yahoo.com" property="schema:email">cheptanariudorin@yahoo.com</a>
                         </li>
                     </ul>
                 </li>
 
                 <li typeof="sa:ContributorRole" property="schema:author">
-                    <span typeof="schema:Person" resource="fb.com/radu-luca">
+                    <span typeof="schema:Person" resource="fb.com/buliga-nicu">
                         <meta property="schema:givenName" content="Buliga">
                         <meta property="schema:familyName" content="Nicu">
                         <span property="schema:name">Buliga Nicu</span>
                     </span>
-                    <!-- <a href="#sf" property="sa:roleAffiliation" resource="http://www.santafe.edu/">a</a>,
-                <a href="#umich" property="sa:roleAffiliation" resource="http://umich.edu/">b</a>,
-                <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a> -->
                     <ul>
                         <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
-                            <a href="mailto:radulucapay@gmail.com" property="schema:email">radulucapay@gmail.com</a>
+                            <a href="mailto:nicu.buliga2000@gmail.com" property="schema:email">nicu.buliga2000@gmail.com</a>
                         </li>
                     </ul>
                 </li>
@@ -128,10 +128,10 @@
                 <p>The main functionalities of this website are:
                     <ul>
                         <li>Create account for users</li>
-                        <li> Management for accountD</li>
-                        <li> Posibility of registered users to add a camp siteD</li>
-                        <li>Users can add a review with rating and photos or videosR</li>
-                        <li>Users can reserve a campgroundR</li>
+                        <li> Management for account</li>
+                        <li> Posibility of registered users to add a camp site</li>
+                        <li>Users can add a review with rating and photos or videos</li>
+                        <li>Users can reserve a campground</li>
                         <li>Every camp has informations about price, location, contanct , utilities and weather.</li>
                     </ul>
                 </p>
@@ -147,19 +147,20 @@
         </h2>
 
 
-
         <section id="User-Interfaces">
             <h3> <span> 3.1 </span> 
                 User Interfaces
             </h3>
-            <p>
-                <ul>
-                    <li class="login-info">
+            <section id="create-account">
+                <h4>
+                    <span> 3.1.1 </span>
+                    How to create an account
+                </h4>
+                    <div class="login-info">
                         <div class="group">
-                            <div class="instruction">
+                            <div>
                                 <p>
-                                    1. On the header section, users can find a button named "SignUp":
-        
+                                1. On the header section, users can find a button named "SignUp":
                                 </p>
                                 <img src="./images/clickSignUp.PNG" alt="clickSignUp">
                             </div>
@@ -175,32 +176,112 @@
                         </div>
 
                         Now the account is created and user can log in!
-                    </li>
-                    <li >
-                     In the profile page , the user can see the information about is account , like name , sex , email and addres. This information can be modified by pressing the button Edit 
+                    </div>
+            </section>
+
+            <section id="manage-account">
+                <h4>
+                    <span> 3.1.2 </span>
+                    How to manage your account
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        In the profile page , the user can see the information about is account , like name , sex , email and addres. This information can be modified by pressing the button Edit 
                         , and change what he want and press the button submit.
                         In this image , we can see what profile page looks like and the position of button edit .<br>
-                        <img alt="Profile" src="images/profilepage.png" width=50% height=30%><img alt="profileSubmit" src="images/profilepage2.png" width=50% height=30%>
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="./images/profilepage.png" alt="Profile Page">
+                             <figcaption class="fig-img small-txt">Model profile page</figcaption> 
+                        </figure>
                         The user have a button for change his avatar picture, in the left of the page , where can choose a photo from his device.<br>
                          If the user is an admin , he will have a button for see the camping added by users which are not accepted yet, where he can accept or refuse the proposal.
-                    </li>
-                    <li>
-                        When a user wants to add a new campground to the website , this page will appear :<br>
-                        <img alt="AddCamp" src="images/addCamp.png" width=50% height=30%><br>
-                        In this page , the user needs to complete a form where he gives to website information about the camp , like name , price , phone number , and the opening dates.
-                        It can also add pictures  with the campground , and a description for the place , and then Submit the information , and wait for an admin to accept the proposal.
-                    </li>
+                    </p>
+                </div>
+            </section>
 
-                    <li class="login-info">
+            <section id="add-camp"> 
+                <h4>
+                    <span> 3.1.3 </span>
+                    How to add a new campground
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        When a user wants to add a new campground to the website , this page will appear :
+                        <figure typeof="sa:image">
+                            <img class="add-img" src="./images/addCamp.png" alt="utilities">
+                             <figcaption class="add-img small-txt">Add campground model</figcaption> 
+                        </figure>
+                            <br>
+                            In this page , the user needs to complete a form where he gives to website information about the camp , like name , price , phone number , and the opening dates.
+                            It can also add pictures  with the campground , and a description for the place , and then Submit the information , and wait for an admin to accept the proposal.
+                        
+                    </p>
+                </div>
+            </section>
+            <section id="info-camp">
+                <h4>
+                    <span> 3.1.4 </span>
+                    Campground information
+                </h4>
+                    <div class="txt-paragraph">
                         <p>
-                            On the left part of a camp page users can see informations about
-                            price, location, contact, utilities and weather:
-                        </p>
-                        <img src="./images/utilities.PNG" alt="utilities">
-                    </li>
-                </ul>
-                
-            </p>
+                        On the left part of a camp page users can see informations about
+                        price, location, contact, utilities and weather:
+                    </p>
+                    <figure typeof="sa:image">
+                        <img class="fig-img" src="./images/utilities.PNG" alt="utilities">
+                         <figcaption class="fig-img small-txt">Utilities</figcaption> 
+                    </figure>
+                    </div>
+
+            </section>
+            
+            <section id="book-info">
+                <h4>
+                    <span> 3.1.5 </span>
+                    How to make a camping reservation
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        On the campground page, immediately after the description you will have to select 
+                        the date when you want to make the reservation ( <span class="small-txt">number 1 in the picture</span> ) and then confirm the choice by typing 
+                        the "Book now" button ( <span class="small-txt">number 2 in the picture</span> ).
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="images/bookNow.PNG"
+                                 alt="Book now instruction">
+                             <figcaption class="fig-img small-txt">Book now instruction</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+            </section>
+
+            <section id="review-info">
+                <h4>
+                    <span> 3.1.6 </span>
+                    Add a review
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        1. Type the "Leave a review" button:
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="images/review1.PNG"
+                                 alt="Leave a review button">
+                             <figcaption class="fig-img small-txt">Leave a review button</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+                <div class="txt-paragraph">
+                    <p>
+                       2. After the next window appears 
+                       ( <a href="#review">figure</a> ) , leave a rating between 1-5, a comment and optional pictures or video:
+                        <figure id="review" typeof="sa:image">
+                            <img class="fig-img" src="images/review2.PNG"
+                                 alt="Review windows">
+                             <figcaption class="fig-img small-txt">Window to leave a review</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+            </section>
         </section>
 
     </section>
