@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="styles/aboutstyle.css">
 
+    <link rel="stylesheet" href="./styles/about.css">
 </head>
 
 <body prefix="schema: http://schema.org">
@@ -126,12 +127,12 @@
                 </h3>
                 <p>The main functionalities of this website are:
                     <ul>
-                        <li>Create account for usersN</li>
+                        <li>Create account for users</li>
                         <li> Management for accountD</li>
                         <li> Posibility of registered users to add a camp siteD</li>
                         <li>Users can add a review with rating and photos or videosR</li>
                         <li>Users can reserve a campgroundR</li>
-                        <li>Every camp has informations about price, location, contanct , utilities and weather .N</li>
+                        <li>Every camp has informations about price, location, contanct , utilities and weather.</li>
                     </ul>
                 </p>
             </section>
@@ -145,12 +146,36 @@
             External Interface Requirements
         </h2>
 
+
+
         <section id="User-Interfaces">
             <h3> <span> 3.1 </span> 
                 User Interfaces
             </h3>
             <p>
                 <ul>
+                    <li class="login-info">
+                        <div class="group">
+                            <div class="instruction">
+                                <p>
+                                    1. On the header section, users can find a button named "SignUp":
+        
+                                </p>
+                                <img src="./images/clickSignUp.PNG" alt="clickSignUp">
+                            </div>
+                            <div class="group">
+                                <div class="instruction">
+                                    <p>
+                                        2. After clicking on it user must complete a form 
+                                        with valid informations about him and click the button "Sign Up":
+                                    </p>
+                                    <img src="./images/completeSignUp.PNG" alt="completeSignUp">
+                                </div>
+                            </div>
+                        </div>
+
+                        Now the account is created and user can log in!
+                    </li>
                     <li >
                      In the profile page , the user can see the information about is account , like name , sex , email and addres. This information can be modified by pressing the button Edit 
                         , and change what he want and press the button submit.
@@ -164,6 +189,14 @@
                         <img alt="AddCamp" src="images/addCamp.png" width=50% height=30%><br>
                         In this page , the user needs to complete a form where he gives to website information about the camp , like name , price , phone number , and the opening dates.
                         It can also add pictures  with the campground , and a description for the place , and then Submit the information , and wait for an admin to accept the proposal.
+                    </li>
+
+                    <li class="login-info">
+                        <p>
+                            On the left part of a camp page users can see informations about
+                            price, location, contact, utilities and weather:
+                        </p>
+                        <img src="./images/utilities.PNG" alt="utilities">
                     </li>
                 </ul>
                 
