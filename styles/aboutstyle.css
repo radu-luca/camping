@@ -32,3 +32,34 @@ h2 {
 h1, h2 {
     color: #4b0061;
 }
+
+img{
+    max-width: 100%;
+    min-height: 100%;
+} 
+h4{
+    margin-top: 1em;
+    margin-left: 1.5em;
+}
+figcaption {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+  }
+
+  .fig-img{
+      width: 65%;
+  }
+  .add-img{
+      width: 40%;
+  }
+  .small-txt{
+      font-size: small;
+      font-style: italic;
+  }
+
+  .txt-paragraph{
+      margin-left: 2em;
+  }
