@@ -15,7 +15,7 @@ exports.getContact = (req,res) => {
     let htmlRenderized = ejs.render(ejsContent, {filename: 'views/contact.ejs'});
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(htmlRenderized);
-}
+};
 
 exports.postContact = (req,res) => {
     let body = '';

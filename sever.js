@@ -1,5 +1,7 @@
 const http = require("http");
 const ejs = require('ejs');
+const jwt = require('jsonwebtoken');
+
 
 const campsController = require("./controllers/campController");
 const utilController = require("./controllers/utilController");
