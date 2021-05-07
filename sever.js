@@ -7,6 +7,9 @@ const adminController = require("./controllers/adminController");
 const authController = require("./controllers/authController");
 const errorController = require("./controllers/errorController");
 
+const mongoConnect = require('./util/database').mongoConnect;
+const { MongoClient } = require("mongodb");
+
 const server = http.createServer((req, res) => {
   if (req.url === "/" && req.method === "GET") {
     return campsController.getHome(req, res);
@@ -30,6 +33,10 @@ const server = http.createServer((req, res) => {
   {
     return authController.getRegister(req,res);
   }
+  if(req.url === "/register" && req.method === "POST")
+  {
+    return authController.postRegister(req,res);
+  }
   if(req.url === "/campground" && req.method === "GET") 
   {
     return campsController.getCamp(req,res);
@@ -42,12 +49,16 @@ const server = http.createServer((req, res) => {
   {
     return adminController.postContact(req,res);
   }
+  if(req.url == "/login" && req.method === "POST")
+  {
+    return authController.postLogin(req,res);
+  }
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
   }
   errorController.get404(req,res);
 });
 
-const PORT = 5000;
-
-server.listen(PORT);
+mongoConnect(() => {
+  server.listen(5000);
+});

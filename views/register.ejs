@@ -11,7 +11,7 @@
                 <h1 class="header-register">Create Account</h1>
                 <div class="register-form">
 
-                    <form action="">
+                    <form action="/register" method="POST">
                         <span class="align_input">
 
                         </span>
@@ -21,22 +21,14 @@
                             <input type="text" class="input_inline" name="name" required>
                         </span>
 
-                        <span class="align_input">
+                        <label for="email" class="label_input">Email adress*</label>
+                        <input type="email" class="input_inline" name="email" required>
 
-                        </span>
+                        <label for="phone" class="label_input">Phone</label>
+                        <input type="text" class="input_inline" name="phone">
 
-                        <span class="align_input">
-
-                        </span>
-
-                        <label for="email_reg" class="label_input">Email adress*</label>
-                        <input type="email" class="input_inline" name="email_reg" required>
-
-                        <label for="phone_reg" class="label_input">Phone</label>
-                        <input type="text" class="input_inline" name="phone_reg">
-
-                        <label for="password_reg" class="label_input">Password*</label>
-                        <input type="password" class="input_inline" name="password_reg" required>
+                        <label for="password" class="label_input">Password*</label>
+                        <input type="password" class="input_inline" name="password" required>
 
                         <p class="required_text">Fields marked * are required.</p>
 
