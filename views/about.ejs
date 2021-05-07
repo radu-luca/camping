@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="../public/styles/aboutstyle.css">
+
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <h1>Project Report</h1>
+    </header>
+    <div role="contentinfo">
+        <ol role="directory">
+            <li><a href="#introduction"><span>1. </span>Introduction</a>
+                <ol role="directory">
+                    <li><a href="#Porpuse"><span>1.1 </span>Porpuse</a></li>
+                    <li><a href="#Product-Scope"><span>1.2 </span>Product Scope</a></li>
+                </ol>
+            </li>
+            <li><a href="#Overall-Description"><span>2. </span>Overall Description</a>
+                <ol role="directory">
+                    <li><a href="#Product-Functions"><span>2.1 </span>Product Functions</a></li>
+                </ol>
+            </li>
+            <li><a href="#External-Interface-Requirements"><span>3. </span>External Interface Requirements</a>
+                <ol role="directory">
+                    <li><a href="#User-Interfaces"><span>3.1 </span> User Interfaces</a>
+                        <ol role="directory">
+                            <li><a href="#create-account"><span>3.1.1 </span>How to create an account</a></li>
+                            <li><a href="#manage-account"><span>3.1.2 </span>How to manage your account</a></li>
+                            <li><a href="#add-camp"><span>3.1.3 </span>How to add a new campground</a></li>
+                            <li><a href="#info-camp"><span>3.1.4 </span>Campground information</a></li>
+                            <li><a href="#book-info"><span>3.1.5 </span>How to make a camping reservation</a></li>
+                            <li><a href="#review-info"><span>3.1.6 </span>Add a review</a></li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        
+        </ol>
+        <section typeof="sa:AuthorsList">
+            <h2>Authors</h2>
+            <ul>
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person" resource="fb.com/radu-luca">
+                        <meta property="schema:givenName" content="Luca">
+                        <meta property="schema:familyName" content="Radu">
+                        <span property="schema:name">Luca Radu</span>
+                    </span>
+                
+                    <ul>
+                        <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                            <a href="mailto:radulucapay@gmail.com" property="schema:email">radulucapay@gmail.com</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person" resource="fb.com/dorin-cheptanariu">
+                        <meta property="schema:givenName" content="Dorin">
+                        <meta property="schema:familyName" content="Cheptanariu">
+                        <span property="schema:name">Dorin Cheptanariu</span>
+                    </span>
+                    
+                    <ul>
+                        <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                            <a href="mailto:cheptanariudorin@yahoo.com" property="schema:email">cheptanariudorin@yahoo.com</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li typeof="sa:ContributorRole" property="schema:author">
+                    <span typeof="schema:Person" resource="fb.com/buliga-nicu">
+                        <meta property="schema:givenName" content="Buliga">
+                        <meta property="schema:familyName" content="Nicu">
+                        <span property="schema:name">Buliga Nicu</span>
+                    </span>
+                    <ul>
+                        <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                            <a href="mailto:nicu.buliga2000@gmail.com" property="schema:email">nicu.buliga2000@gmail.com</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+
+    <section role="doc-introduction" id="introduction">
+        <h2>
+            <span>1. </span>
+            Introduction</h2>
+        
+        <section id="Porpuse">
+            <h3> <span> 1.1</span> 
+                Porpuse
+            </h3>
+            <p>
+               This is a website designed for the lovers of nature, who like to camp and want to visit many places. Here they can find  a list of campgrounds 
+               where they can reserve a place to camp as many days as they want,even give feedback about a certain place.
+            </p>
+        </section>
+
+        <section id="Product-Scope">
+            <h3> <span> 1.2</span> 
+                Product Scope
+            </h3>
+            <p>
+                The scope of this website is to provide users  a list of safe places to camp ,which contain reviews from real users .
+                 Every camp place is verified by a admin before it's posted ,to prevent fake locations or bad conditions.Our goal is to have a comunity of trusting people who can help other people who want to live the same experience and go in the same places.
+            </p>
+        </section>
+    </section>
+
+    <section id="Overall-Description">
+        <h2>
+            <span>2. </span>
+            Overall Description</h2>
+
+            <section id="Product-Functions">
+                <h3> <span> 2.1</span> 
+                    Product Functions
+                </h3>
+                <p>The main functionalities of this website are:
+                    <ul>
+                        <li>Create account for users</li>
+                        <li> Management for account</li>
+                        <li> Posibility of registered users to add a camp site</li>
+                        <li>Users can add a review with rating and photos or videos</li>
+                        <li>Users can reserve a campground</li>
+                        <li>Every camp has informations about price, location, contanct , utilities and weather.</li>
+                    </ul>
+                </p>
+            </section>
+
+            
+    </section>
+
+    <section id="External-Interface-Requirements">
+        <h2>
+            <span>3. </span>
+            External Interface Requirements
+        </h2>
+
+
+        <section id="User-Interfaces">
+            <h3> <span> 3.1 </span> 
+                User Interfaces
+            </h3>
+            <section id="create-account">
+                <h4>
+                    <span> 3.1.1 </span>
+                    How to create an account
+                </h4>
+                    <div class="txt-paragraph">
+                        <div class="group">
+                            <p>
+                                1. On the header section, users can find a button named "SignUp":
+                                
+                                <figure typeof="sa:image">
+                                    <img class="fig-img" src="../public/images/clickSignUp.PNG" alt="clickSignUp">
+                                     <figcaption class="fig-img small-txt">Model Sign Up Button</figcaption> 
+                                </figure>
+                                
+                            </p>
+                            
+                        </div>
+                        <div class="group">
+                                <p>
+                                    2. After clicking on it user must complete a form 
+                                    with valid informations about him and click the button "Sign Up":
+                                    <figure typeof="sa:image">
+                                        <img class="fig-img" src="../public/images/completeSignUp.PNG" alt="completeSignUp">
+                                        <figcaption class="fig-img small-txt">Model Sign Up Page</figcaption> 
+                                    </figure>
+                                </p>
+                                
+                        </div>
+                        Now the account is created and user can log in!
+                    </div>
+
+                    
+            </section>
+
+            <section id="manage-account">
+                <h4>
+                    <span> 3.1.2 </span>
+                    How to manage your account
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        In the profile page , the user can see the information about is account , like name , sex , email and addres. This information can be modified by pressing the button Edit 
+                        , and change what he want and press the button submit.
+                        In this image , we can see what profile page looks like and the position of button edit .<br>
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="../public/images/profilepage.png" alt="Profile Page">
+                             <figcaption class="fig-img small-txt">Model profile page</figcaption> 
+                        </figure>
+                        The user have a button for change his avatar picture, in the left of the page , where can choose a photo from his device.<br>
+                         If the user is an admin , he will have a button for see the camping added by users which are not accepted yet, where he can accept or refuse the proposal.
+                    </p>
+                </div>
+            </section>
+
+            <section id="add-camp"> 
+                <h4>
+                    <span> 3.1.3 </span>
+                    How to add a new campground
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        When a user wants to add a new campground to the website , this page will appear :
+                        <figure typeof="sa:image">
+                            <img class="add-img" src="../public/images/addCamp.png" alt="utilities">
+                             <figcaption class="add-img small-txt">Add campground model</figcaption> 
+                        </figure>
+                            <br>
+                            In this page , the user needs to complete a form where he gives to website information about the camp , like name , price , phone number , and the opening dates.
+                            It can also add pictures  with the campground , and a description for the place , and then Submit the information , and wait for an admin to accept the proposal.
+                        
+                    </p>
+                </div>
+            </section>
+            <section id="info-camp">
+                <h4>
+                    <span> 3.1.4 </span>
+                    Campground information
+                </h4>
+                    <div class="txt-paragraph">
+                    <p>
+                        On the left part of a camp page users can see informations about
+                        price, location, contact, utilities and weather:
+                    </p>
+                    <figure typeof="sa:image">
+                        <img class="fig-img" src="../public/images/utilities.PNG" alt="utilities">
+                         <figcaption class="fig-img small-txt">Utilities</figcaption> 
+                    </figure>
+                    </div>
+
+            </section>
+            
+            <section id="book-info">
+                <h4>
+                    <span> 3.1.5 </span>
+                    How to make a camping reservation
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        On the campground page, immediately after the description you will have to select 
+                        the date when you want to make the reservation ( <span class="small-txt">number 1 in the picture</span> ) and then confirm the choice by typing 
+                        the "Book now" button ( <span class="small-txt">number 2 in the picture</span> ).
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="../public/images/bookNow.PNG"
+                                 alt="Book now instruction">
+                             <figcaption class="fig-img small-txt">Book now instruction</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+            </section>
+
+            <section id="review-info">
+                <h4>
+                    <span> 3.1.6 </span>
+                    Add a review
+                </h4>
+                <div class="txt-paragraph">
+                    <p>
+                        1. Type the "Leave a review" button:
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="../public/images/review1.PNG"
+                                 alt="Leave a review button">
+                             <figcaption class="fig-img small-txt">Leave a review button</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+                <div class="txt-paragraph">
+                    <p>
+                       2. After the next window appears 
+                       ( <a href="#review">figure</a> ) , leave a rating between 1-5, a comment and optional pictures or video:
+                        <figure id="review" typeof="sa:image">
+                            <img class="fig-img" src="../public/images/review2.PNG"
+                                 alt="Review windows">
+                             <figcaption class="fig-img small-txt">Window to leave a review</figcaption> 
+                        </figure>
+                    </p>
+                </div>
+            </section>
+        </section>
+
+    </section>
+</body>
+
+</html>
