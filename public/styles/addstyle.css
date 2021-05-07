@@ -1,41 +1,3 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    background: whitesmoke;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
- 
-a {
-    text-decoration: none;
-}
-
-.app_footer, .app__header {
-    font-family: 'Roboto', sans-serif;
-}
-
-.app__header ul, .app_footer ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;    
-    padding: 0;
-}
-
-.app__header li:hover, .app_footer li:hover {
-    transform: scale(1.1);
-    transition: all 150ms linear;
-}
-
-.navbar {
-    width: 75%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .main__side {
     display: flex;
@@ -51,100 +13,7 @@ a {
     margin-bottom: 1em;
     margin-top: 1em;
 }
- 
-.app__header{
-    background: rgb(250, 0, 50);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
- 
-.app_footer {
-    height: 5em;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-shrink: 0;
-}
- 
-.logo {
-    display: inline-block;
-}
 
-.left-header-btn,.left-header-btn-links {
-    color: antiquewhite;
-    padding-right: 1em;
-}
-
-.right-header-btn {
-    color: antiquewhite;
-    padding-left: 1em;
-}
- 
-.footer-btn {
-    margin: 1em;
-    color: antiquewhite;
-}
-
-
-.menuBtn{
-   display: none;
-   background-color: rgb(250, 0, 50);
-   font-size: 1rem;
-   height: 100%;
-   width: 15%;
-   border:none;
-   color: whitesmoke;
-   }
-.menuBtn:hover{
-    background-color:rgb(179, 36,  0);
-  }
-
-   nav{
-    padding:1em;
-    width: 8em;
-    position: absolute;
-    top:3.7em;
-    right:0;
-    transform: translateX(+100%);
-    transition: transform 1s cubic-bezier(0, 1.01, 0.58, 2);
-    background-color:red;
-    display: none;
-  }
-  .navbar-links {
-    padding: 0;
-  }
-
-  .navbar-links li{
-    display:block;
-    width: 100%;
-    padding: 0.3em; 
-    margin: 0;
-   
-  }
-  .navbar-links li a{
-    color: antiquewhite;
-    margin: 0;
-  }
-  .navbar-links li:hover{
-    background-color:rgb(179, 36,  0);
-  }
-  .navbar-links{
-    margin:0;
-  }
-  nav.is--open {
-      display:unset;
-    transform: translateX(0);
-  
-  }
- 
-
-.hidden {
-    display: none;
-}
- 
  .register-form{
     background-color: #fff;
     padding: 1em;
@@ -241,13 +110,6 @@ a {
 }
 
 @media screen and (max-width: 620px) {
-    .left-header-btn-links,.right-header-btn{
-        display: none;
-    
-      }
-      .menuBtn{
-          display: block;
-      }
       .register-form {
     width: auto;  
     }

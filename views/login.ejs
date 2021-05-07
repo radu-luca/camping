@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
+<link rel="stylesheet" href="../public/styles/loginstyle.css">
+</head>
+<%- include('includes/navbar.ejs') %>
+<div class="central-part">
+
+    <main class="main__side">
+            <div>
+                <h1 class="header-register">Login</h1>
+                <form class="register-form" action="">
+
+                    <label for="email_log" class="label_input">Email adress*</label>
+                    <input type="text" class="input_inline" name="email_log" required>
+
+                    <label for="password_login" class="label_input">Password*</label>
+                    <input type="password" class="input_inline" name="password_login" required>
+
+
+                    <button type="submit" class="btn_signup">Login</button>
+                </form>
+              <p>Don't have an account? <a href="/register">Sign Up</a></p>  
+            </div>
+
+
+    </main>
+</div>
+<%- include('includes/footer.ejs') %>
+</body>
+</html>

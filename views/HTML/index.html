@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../public/images/favicon.ico">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app__header">
+        <div class="navbar">
+            <div class="left__header">
+                <ul>
+                    <li>
+                        <a href="./index.html">
+                            <h3 class="logo left-header-btn">Campgrounds</h3>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="./about.html">
+                            <span class="left-header-btn-links">About</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="./add.html">
+                            <span class="left-header-btn-links">New</span>
+                        </a>
+
+                    </li>
+                </ul>
+    
+            </div>
+    
+            <div class="right__header">
+                <ul>
+                    <li>
+                        <a href="./profileDashboard.html">
+                            <span class="right-header-btn">Profile</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="./login.html">
+                            <span class="right-header-btn">Login</span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="./register.html">
+                            <span class="right-header-btn">SignUp</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <button class="menuBtn" id="menuBtn" type="button"> Menu </button>
+    </header>
+    <nav id="navPanel">
+        <ol class="navbar-links">
+          <!-- <li>
+            <a href="">Campgrounds</a>
+          </li> -->
+          <li>
+            <a href="./about.html">About</a>
+          </li>
+          <li>
+            <a href="./add.html">New</a>
+          </li>
+          <li>
+            <a href="./login.html">Login</a>
+          </li>
+          <li>
+            <a href="./register.html">Sign Up</a>
+          </li>
+  
+        </ol>
+        
+      </nav>
+        <div class="top-background">
+            <h1 class="top-background__msg">
+                Welcome to Campgrounds!
+            </h1>
+            <p class="top-background__paragraph">
+              Find your best campground and enjoy the nature  
+            </p>
+        </div>
+        
+        <div class="info-section">
+            <div class="resources">
+
+                <select name="ordering" id="order-select" class="select-order">
+                    <option value="">
+                        Sort By
+                    </option>
+                    <option value="date"> Date </option>
+                    <option value="name"> Name </option>
+                    <option value="rating"> Rating </option>
+                </select>
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+        </div>
+ 
+        <div class="central-part">
+            <main class="main__side">
+
+                <div class="gallery">
+                    <div class="gallery__thumbnail">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FtcGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="gallery__thumbnail">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="">
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery__thumbnail">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80" alt="">
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery__thumbnail hidden">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80" alt="">
+
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery__thumbnail hidden">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80" alt="">
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="gallery__thumbnail hidden">
+                        <a href="./campFile.html">
+                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80" alt="">
+                            <div class="thumbnail__infos">
+                                <span>
+                                    Desoto State Park                   
+                                </span>
+                                <div class="price">
+                                    $ 15.85/night
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                
+                <span id="displayAll-btn" class="btn-allCamps">
+                        See all campgrounds...
+                </span>
+
+                <span id="hideAll-btn" class="btn-allCamps hidden">
+                        Show less...
+                </span>
+            </main>
+        </div>
+ 
+        <footer class="app_footer">
+            <ul>
+                <li>
+                    <div class="about-us">
+                        <a href="./about.html" class="footer-btn">
+                            About Us
+                        </a> 
+                    </div>
+
+                </li>
+                <li>
+                    <div class="contact">
+                        <a href="./contact.html" class="footer-btn">
+                            Contact
+                        </a>
+                    </div>
+
+                </li>
+            </ul>
+ 
+        </footer>
+ <script src="../public/js/app.js"></script>
+</body>
+</html>

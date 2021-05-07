@@ -1,37 +1,51 @@
 const http = require("http");
-const path = require("path");
-const fs = require("fs");
-const CampsController = require("./controllers/campController");
+const ejs = require('ejs');
+
+const campsController = require("./controllers/campController");
+const utilController = require("./controllers/utilController");
+const adminController = require("./controllers/adminController");
+const authController = require("./controllers/authController");
+const errorController = require("./controllers/errorController");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/" && req.method === "GET") {
-    CampsController.getCamps(req, res);
-  } else if (req.url.indexOf(".") != -1) {
-    var filePath = "." + req.url;
-    var extname = String(path.extname(filePath)).toLowerCase();
-    var mimeTypes = {
-      ".js": "text/javascript",
-      ".css": "text/css",
-      ".json": "application/json",
-      ".png": "image/png",
-      ".jpg": "image/jpg",
-      ".gif": "image/gif",
-      ".svg": "image/svg+xml",
-      ".wav": "audio/wav",
-      ".mp4": "video/mp4",
-      ".woff": "application/font-woff",
-      ".ttf": "application/font-ttf",
-      ".eot": "application/vnd.ms-fontobject",
-      ".otf": "application/font-otf",
-      ".wasm": "application/wasm",
-    };
-    var contentType = mimeTypes[extname];
-
-    fs.readFile(filePath, function (error, content) {
-      res.writeHead(200, { "Content-Type": contentType });
-      res.end(content, "utf-8");
-    });
+    return campsController.getHome(req, res);
   }
+  if (req.url === "/about" && req.method === "GET") {
+    return campsController.getAbout(req, res);
+  }
+  if(req.url === "/add" && req.method === "GET")
+  {
+    return adminController.getAdd(req,res);
+  }
+  if(req.url === "/profile" && req.method === "GET")
+  {
+    return authController.getProfile(req,res);
+  }
+  if(req.url === "/login" && req.method === "GET")
+  {
+    return authController.getLogin(req,res);
+  }
+  if(req.url === "/register" && req.method === "GET")
+  {
+    return authController.getRegister(req,res);
+  }
+  if(req.url === "/campground" && req.method === "GET") 
+  {
+    return campsController.getCamp(req,res);
+  }
+  if(req.url === "/contact" && req.method === "GET")
+  {
+    return adminController.getContact(req,res);
+  }
+  if(req.url == "/contact" && req.method === "POST")
+  {
+    return adminController.postContact(req,res);
+  }
+  if (req.url.indexOf(".") != -1) {
+    return utilController.getUtilFiles(req, res);
+  }
+  errorController.get404(req,res);
 });
 
 const PORT = 5000;

@@ -1,0 +1,49 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
+<link rel="stylesheet" href="../public/styles/addstyle.css">
+</head>
+<%- include('includes/navbar.ejs') %>
+<div class="central-part">
+
+    <main class="main__side">
+        <div>
+            <h1 class="header-register">Add Campgrounds</h1>
+            <form class="register-form" action="/add" method="POST">
+
+                <label for="name_camp" class="label_input">Name</label>
+                <input type="text" class="input_inline" name="name_camp" placeholder="Name of Campground" required>
+
+                <label for="price" class="label_input">Price / day</label>
+                <input type="number" class="input_inline" value="1.0" step="1.0" required>
+
+                <label for="phone" class="label_input">Phone</label>
+                <input type="text" class="input_inline" placeholder="11111" required>
+
+                <label class="label_input" for="start-date">Start date:</label>
+                <input type="date" id="start-date" class="input_inline" name="trip-start" value="2021-05-31" >
+
+                <label class="label_input" for="end-date">End Date:</label>
+
+                <input type="date" id="end-date" class="input_inline" name="trip-end" value="2021-06-01" >
+
+
+                <label for="imagini" class="label_input display-inline">Pictures</label>
+                <input type='file' name="imagini" accept="image/gif, image/jpeg, image/png" class="input_inline"
+                    multiple required>
+
+                <label for="description" class="label_input">Description</label>
+                <textarea class="input_inline" type="text" name="description" rows="10"
+                    placeholder="Add a small Description" required=""></textarea>
+
+
+                <button type="submit" class="btn_signup">Submit</button>
+            </form>
+
+        </div>
+
+
+    </main>
+</div>
+<%- include('includes/footer.ejs') %>
+</body>
+</html>
