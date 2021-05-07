@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const ejs = require("ejs");
 const { parse } = require("querystring");
+const jwt = require('jsonwebtoken');
 
 const User = require("../models/user");
-const Auth = require("../util/isAuth");
 
 exports.getProfile = (req, res) => {
 
@@ -37,7 +37,9 @@ exports.postLogin = (req, res) => {
   req.on("end", () => {
     let obj = parse(body);
     User.findDb(obj.email_log, obj.password_login).then((result) => {
-      if (result) console.log("Login successful");
+      if (result) {
+        console.log("Login successful");
+      }
       else console.log("Login unsuccessful");
     });
   });
