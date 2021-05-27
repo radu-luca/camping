@@ -1,21 +1,27 @@
 <%- include('includes/head.ejs') %>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/styles/contactStyles.css">
-</head>
-<%- include('includes/navbar.ejs') %>
-<div class="central-part">
-    <main>
-        <h1>Contact Us</h1>
-        <form action="/contact" method="POST">
-            <label for="email">Email</label>
-            <input name="email" required type="email" placeholder="Your email...">
-            <textarea required name="message" rows="15" placeholder="Your message..."></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </main>
-</div>
+    </head>
+    <% if(!isLoggedIn) { %>
+        <%- include('includes/navbar.ejs') %>
+            <%} else {%>
+                <%- include('includes/navbar_loggedIn.ejs') %>
+                    <% } %>
+                        <div class="central-part">
+                            <main>
+                                <h1>Contact Us</h1>
+                                <form action="/contact" method="POST">
+                                    <label for="email">Email</label>
+                                    <input name="email" required type="email" placeholder="Your email...">
+                                    <textarea required name="message" rows="15"
+                                        placeholder="Your message..."></textarea>
+                                    <button type="submit">Send Message</button>
+                                </form>
+                            </main>
+                        </div>
 
-<%- include('includes/footer.ejs') %>
-</body>
-</html>
+                        <%- include('includes/footer.ejs') %>
+                            </body>
+
+                            </html>

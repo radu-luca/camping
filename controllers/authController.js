@@ -2,22 +2,10 @@ const fs = require("fs");
 const path = require("path");
 const ejs = require("ejs");
 const { parse } = require("querystring");
+const jwt = require('jsonwebtoken');
+const secretJWT = 'lsfnlNnfLnf398U';
 
 const User = require("../models/user");
-const Auth = require("../util/isAuth");
-
-exports.getProfile = (req, res) => {
-
-  let ejsContent = fs.readFileSync(
-    path.join(__dirname, "..", "views/profile.ejs"),
-    "utf-8"
-  );
-  let htmlRenderized = ejs.render(ejsContent, {
-    filename: "views/profile.ejs",
-  });
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end(htmlRenderized);
-};
 
 exports.getLogin = (req, res) => {
   let ejsContent = fs.readFileSync(
@@ -37,14 +25,32 @@ exports.postLogin = (req, res) => {
   req.on("end", () => {
     let obj = parse(body);
     User.findDb(obj.email_log, obj.password_login).then((result) => {
-      if (result) console.log("Login successful");
-      else console.log("Login unsuccessful");
+      if (result) {
+        // Create JWT
+        const payload = { email: obj.email_log }
+
+        const token = jwt.sign(payload, secretJWT, {
+          algorithm: "HS256",
+          expiresIn: 5000
+        });
+        // Write token to cookie
+        res.writeHead(302, {
+          'Set-Cookie': 'token=' + token,
+          'Location': '/'
+        });
+
+        console.log("Login successful");
+      }
+      else {
+        res.writeHead(301, {
+          'Location': '/'
+        });
+        console.log("Login unsuccessful");
+      }
+
+      res.end();
     });
   });
-  res.writeHead(302, {
-    Location: "/",
-  });
-  res.end();
 };
 
 exports.postRegister = (req, res) => {
@@ -70,6 +76,22 @@ exports.postRegister = (req, res) => {
   });
 };
 
+exports.logOut = (req, res) => {
+  // Set token expiration time to 0
+  const token = jwt.sign({ msg: "expired" }, secretJWT, {
+    algorithm: "HS256",
+    expiresIn: 0
+  });
+  // Write token to cookie
+  res.writeHead(302, {
+    'Set-Cookie': 'token=' + token,
+    'Location': '/'
+  });
+
+  res.end();
+
+}
+
 exports.getRegister = (req, res) => {
   let ejsContent = fs.readFileSync(
     path.join(__dirname, "..", "views/register.ejs"),
@@ -81,3 +103,39 @@ exports.getRegister = (req, res) => {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(htmlRenderized);
 };
+
+exports.isLoggedIn = (req) => {
+  const token = parseCookies(req).token;
+
+  // console.log(token);
+
+  if (!token) {
+    // console.log("trimit false;")
+    return false;
+  }
+
+  let payload;
+
+  try {
+    payload = jwt.verify(token, secretJWT);
+  }
+  catch (e) {
+    // Invalid token
+    return false;
+  }
+
+  // Valid token
+  return true;
+}
+
+function parseCookies(req) {
+  var list = {},
+    rc = req.headers.cookie;
+
+  rc && rc.split(';').forEach(function (cookie) {
+    var parts = cookie.split('=');
+    list[parts.shift().trim()] = decodeURI(parts.join('='));
+  });
+
+  return list;
+}

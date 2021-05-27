@@ -1,25 +1,27 @@
 const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
-const {parse} = require('querystring');
+const { parse } = require('querystring');
+const authController = require("./authController");
 
-exports.getAdd = (req,res) => {
+
+exports.getAdd = (req, res) => {
     let ejsContent = fs.readFileSync(path.join(__dirname, "..", "views/add.ejs"), 'utf-8');
-    let htmlRenderized = ejs.render(ejsContent, {filename: 'views/add.ejs' });
+    let htmlRenderized = ejs.render(ejsContent, { filename: 'views/add.ejs', isLoggedIn: authController.isLoggedIn(req) });
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(htmlRenderized);
 };
 
-exports.getContact = (req,res) => {
+exports.getContact = (req, res) => {
     let ejsContent = fs.readFileSync(path.join(__dirname, "..", "views/contact.ejs"), 'utf-8');
-    let htmlRenderized = ejs.render(ejsContent, {filename: 'views/contact.ejs'});
+    let htmlRenderized = ejs.render(ejsContent, { filename: 'views/contact.ejs', isLoggedIn: authController.isLoggedIn(req) });
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(htmlRenderized);
 }
 
-exports.postContact = (req,res) => {
+exports.postContact = (req, res) => {
     let body = '';
-    req.on('data', item=> {
+    req.on('data', item => {
         body += item.toString();
     });
     req.on('end', () => {
@@ -29,6 +31,6 @@ exports.postContact = (req,res) => {
     });
     res.writeHead(302, {
         'Location': req.url
-      });
-      res.end();
+    });
+    res.end();
 }

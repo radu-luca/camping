@@ -155,6 +155,10 @@ button:focus {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 .top-background__msg {
     font-weight: 900;
     font-size: 3.5em;
@@ -209,5 +213,9 @@ button:focus {
 
     .top-background__msg {
         font-size: 2.5em;
+    }
+
+    .price {
+        display: none;
     }
 }
