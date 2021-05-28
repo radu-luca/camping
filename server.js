@@ -50,8 +50,13 @@ const server = http.createServer((req, res) => {
   if (req.url === "/register" && req.method === "POST") {
     return authController.postRegister(req, res);
   }
-  if (req.url === "/campground" && req.method === "GET") {
-    return campsController.getCamp(req, res);
+  if(req.url.match(/\/campground\/\w+/) && req.method === 'GET') {
+    const id = req.url.split('/')[2];
+    console.log(id);
+    return campsController.getCamp(req, res,id);
+  }
+  if(req.url === "/leave-review" && req.method === "POST"){
+    return campsController.postReview(req,res);
   }
   if (req.url === "/contact" && req.method === "GET") {
     return adminController.getContact(req, res);
@@ -64,6 +69,10 @@ const server = http.createServer((req, res) => {
   }
   if (req.url == "/logout" && req.method === "GET") {
     return authController.logOut(req, res);
+  }
+  if(req.url == "/add" && req.method === "POST")
+  {
+    return adminController.postAdd(req,res);
   }
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
@@ -81,3 +90,4 @@ function redirect(res, path) {
 mongoConnect(() => {
   server.listen(5000);
 });
+

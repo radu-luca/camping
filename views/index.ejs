@@ -45,92 +45,28 @@
                             <main class="main__side">
 
                                 <div class="gallery">
-                                    <div class="gallery__thumbnail">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FtcGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                                                alt="">
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
+                                    <%
+                                    for(let camp of camps) {
+                                        %>
+                                        <div class="gallery__thumbnail">
+                                            <a href="/campground/<%= camp._id %>">
+                                                <img src="../public/images/<%= camp._id %><%= camp.imgExtension %>"
+                                                    alt="">
+                                                <div class="thumbnail__infos">
+                                                    <span>
+                                                        <%= camp.name %>
+                                                    </span>
+                                                    <div class="price">
+                                                        $ <%= camp.price %> /night
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
-
-                                    <div class="gallery__thumbnail">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1470246973918-29a93221c455?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                                                alt="">
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="gallery__thumbnail">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80"
-                                                alt="">
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="gallery__thumbnail hidden">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80"
-                                                alt="">
-
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="gallery__thumbnail hidden">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80"
-                                                alt="">
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="gallery__thumbnail hidden">
-                                        <a href="/campground">
-                                            <img src="https://images.unsplash.com/photo-1537905569824-f89f14cceb68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=647&q=80"
-                                                alt="">
-                                            <div class="thumbnail__infos">
-                                                <span>
-                                                    Desoto State Park
-                                                </span>
-                                                <div class="price">
-                                                    $ 15.85/night
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                            </a>
+                                        </div>
+                                        <%
+                                    }
+                                    %>
+                                    
+                                   
 
                                 </div>
 

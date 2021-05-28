@@ -11,7 +11,7 @@
                             <div class="left-side">
                                 <div class="contact-box">
                                     <div>Contact</div>
-                                    <p>0764343233</p>
+                                    <p><%= camp.phone %></p>
                                 </div>
                                 <div class="utilities-box">
                                     <div>Utilities</div>
@@ -34,13 +34,13 @@
                                 <div class="camp-about">
                                     <div class="camp-pictures">
                                         <img id="photocamp" alt="Poza"
-                                            src="https://cincinnatiusa.com/sites/default/files/styles/article_full/public/attractionphotos/Winton%20Woods%20Campground.JPG?itok=Iytm6OhO">
+                                            src="../public/images/<%= camp._id %><%= camp.imgExtension %>">
                                         <div id="myModal" class="modal">
 
                                             <span class="close">&times;</span>
 
                                             <img class="modal-content" id="img01"
-                                                src="https://cincinnatiusa.com/sites/default/files/styles/article_full/public/attractionphotos/Winton%20Woods%20Campground.JPG?itok=Iytm6OhO"
+                                                src="../public/images/<%= camp._id %><%= camp.imgExtension %>"
                                                 alt="CampPhoto">
                                             <span>
                                                 <a class="previous" href="#pic5">&lt;</a>
@@ -55,8 +55,8 @@
 
                                     <div class="descript-camps">
                                         <span class="price-label">
-                                            <span class="camp-name"> Desoto Park</span>
-                                            <span>10$/day</span>
+                                            <span class="camp-name"> <%= camp.name %></span>
+                                            <span><%= camp.price%>$/day</span>
                                         </span>
                                         <div class="rating-container">
                                             <input type="radio" id="starCamp5" name="starCamp" value="1"><label
@@ -71,11 +71,7 @@
                                                 for="starCamp1"></label>
 
                                         </div>
-                                        <p class="description-box">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                            elit.
-                                            Cupiditate enim, consectetur, sunt iste accusantium, ad illum nihil
-                                            consequuntur aperiam maxime
-                                            magnam velit aliquid quod molestiae odit dolores omnis! Nam, porro.</p>
+                                        <p class="description-box"><%= camp.description %></p>
                                     </div>
                                     <button class="book-btn">Book now</button>
 
@@ -85,7 +81,7 @@
                                 <hr>
                                 <div class="review-section">
                                     <button class="review-btn" onclick="showReview()">Leave a review</button>
-                                    <form action="/" class="review-form" id="review-form">
+                                    <form action="/leave-review" method="POST" class="review-form" id="review-form">
                                         <p>Rating</p>
                                         <div class="rating-container">
 
@@ -103,36 +99,34 @@
                                         </div>
                                         <div class="comment-section">
                                             <h4 style="margin-bottom: 1px;">Comment</h4>
-                                            <textarea id="comment-box" placeholder="Enter your comment"
+                                            <textarea id="comment-box" placeholder="Enter your comment" name="reviewText"
                                                 required></textarea>
-
                                         </div>
-                                        <input class="choose-files" type="file" id="choose-files" name="choose-files"
+                                        <!-- <input class="choose-files" type="file" id="choose-files" name="choose-files"
                                             accept="image/* , video/* ,audio/*">
-                                        <label for="choose-files"> Add some photo or video</label>
+                                        <label for="choose-files"> Add some photo or video</label> -->
                                         <div>
                                             <button type="submit" class="submit-button">Send review</button>
                                         </div>
                                     </form>
                                     <hr>
                                     <div class="added-reviews">
-                                        <label> <b>Reviews</b></label>
-
-                                        <div class="single-review2">
-                                            <div class="avatar">
-                                                <img alt="Smith" src="../public/images/default_avatar.png">
-                                                <h4>Alfred Michel</h4>
+                                         <b>Reviews</b>
+                                        <%for(let review of reviews) {%>
+                                            <div class="single-review2">
+                                                <div class="avatar">
+                                                    <img alt="Smith" src="../public/images/default_avatar.png">
+                                                    <h4><%= review.userName %></h4>
+                                                </div>
+                                                <div class="user-review">
+                                                    <p><b>Rating: </b><%= review.rating%></p>
+                                                    <p><%= review.message %></p>
+                                                </div>
+                                                
                                             </div>
-                                            <div class="user-review">
-                                                <p><b>Rating: </b>4</p>
-                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum
-                                                    accusamus ad consequuntur
-                                                    beatae ratione, cumque architecto voluptas suscipit similique esse?
-                                                    Vel consequuntur
-                                                    adipisci tempora quia ab cupiditate repellat at odit.</p>
-                                            </div>
-                                        </div>
-
+                                            
+                                        <%}%>
+                                    
                                     </div>
                                 </div>
                             </div>
