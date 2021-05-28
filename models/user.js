@@ -27,6 +27,19 @@ class User {
         console.log(err);
     })
     }
+    static findById(ID) {
+        const db = getDb();
+        return db
+          .collection('users')
+          .find({ _id: new mongodb.ObjectId(ID) })
+          .next()
+          .then(user => {
+            return user;
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
 }
 
 module.exports = User;

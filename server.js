@@ -33,6 +33,13 @@ const server = http.createServer((req, res) => {
     }
     return profileController.getProfile(req, res);
   }
+  if(req.url.match(/\/profile\/\w+/) && req.method === "GET"){
+    const id = req.url.split('/')[2];
+    if(id.length == 24)
+    return profileController.getProfileById(req,res,id);
+    else
+    return errorController.get404(req,res);
+  }
   if (req.url === "/login" && req.method === "GET") {
     if (authController.isLoggedIn(req)) {
       redirect(res, "/")
@@ -52,7 +59,6 @@ const server = http.createServer((req, res) => {
   }
   if(req.url.match(/\/campground\/\w+/) && req.method === 'GET') {
     const id = req.url.split('/')[2];
-    console.log(id);
     return campsController.getCamp(req, res,id);
   }
   if(req.url === "/leave-review" && req.method === "POST"){
