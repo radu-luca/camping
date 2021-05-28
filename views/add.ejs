@@ -12,25 +12,25 @@
                             <main class="main__side">
                                 <div>
                                     <h1 class="header-register">Add Campgrounds</h1>
-                                    <form class="register-form" action="/add" method="POST">
+                                    <form class="register-form" action="/add" method="POST" enctype="multipart/form-data">
 
                                         <label for="name_camp" class="label_input">Name</label>
                                         <input type="text" class="input_inline" name="name_camp"
                                             placeholder="Name of Campground" required>
 
                                         <label for="price" class="label_input">Price / day</label>
-                                        <input type="number" class="input_inline" value="1.0" step="1.0" required>
+                                        <input type="number" name="price" class="input_inline" value="1.0" step="1.0" required>
 
                                         <label for="phone" class="label_input">Phone</label>
-                                        <input type="text" class="input_inline" placeholder="11111" required>
+                                        <input type="text" name="phone" class="input_inline" placeholder="11111" required>
 
-                                        <label class="label_input" for="start-date">Start date:</label>
-                                        <input type="date" id="start-date" class="input_inline" name="trip-start"
+                                        <label class="label_input" for="start_date">Start date:</label>
+                                        <input type="date" id="start_date" class="input_inline" name="start_date"
                                             value="2021-05-31">
 
-                                        <label class="label_input" for="end-date">End Date:</label>
+                                        <label class="label_input" for="end_date">End Date:</label>
 
-                                        <input type="date" id="end-date" class="input_inline" name="trip-end"
+                                        <input type="date" id="end_date" class="input_inline" name="end_date"
                                             value="2021-06-01">
 
 
