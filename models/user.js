@@ -12,9 +12,16 @@ class User {
     save() {
         const db = getDb();
         return db.collection('users').insertOne(this);
-      }
+      };
+    static updateUser(id,obj) {
+      const db = getDb();
+      return db
+      .collection("users")
+      .updateOne(id,obj);
+    };
+
    static findDb(emaill, passwordd) {
-       console.log(emaill, passwordd);
+      //  console.log(emaill, passwordd);
         const db = getDb();
     return db
     .collection('users')
@@ -27,6 +34,20 @@ class User {
         console.log(err);
     })
     }
+    static findById(ID) {
+        const db = getDb();
+        return db
+          .collection('users')
+          .find({ _id: new mongodb.ObjectId(ID) })
+          .next()
+          .then(user => {
+            return user;
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+      
 }
 
 module.exports = User;

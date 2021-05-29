@@ -41,7 +41,6 @@ exports.getCamp = (req, res, id) => {
     .then((result) => {
       Review.findByCampId(id)
         .then((reviews) => {
-            console.log(reviews);
           let ejsContent = fs.readFileSync(
             path.join(__dirname, "..", "views/campFile.ejs"),
             "utf-8"

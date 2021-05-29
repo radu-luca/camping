@@ -11,55 +11,41 @@
                                 <div class="left__side">
                                     <div class="avatar-thumbnail">
                                         <img src="../public/images/default_avatar.png" alt="">
-                                        <h3>Bob Bush</h3>
+                                        <h3><%= user.name%></h3>
                                     </div>
                                 </div>
 
                                 <div class="right__side">
-                                    <h1>Bob Bush's DASHBOARD</h1>
+                                    <h1><%= user.name %>'s DASHBOARD</h1>
                                     <form action="">
                                         <div class="form-row">
                                             <div class="form-group">
-                                                <label for="">
-                                                    FirstName
+                                                <label for="name">
+                                                    Name
                                                 </label>
-                                                <input id="name" type="text" readonly value="Bob">
+                                                <input id="name" name="name" type="text" readonly value="<%=user.name%>">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="">
-                                                    LastName
+                                                <label for="phone">
+                                                    Phone
                                                 </label>
-                                                <input type="text" readonly value="Bush">
-                                            </div>
-
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group">
-                                                <label for="">
-                                                    Sex
-                                                </label>
-                                                <input type="text" readonly value="Male">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">
-                                                    Date of Birth
-                                                </label>
-                                                <input type="date" readonly value="2000-01-01">
+                                                <input id="phone" name="phone" type="text" readonly value="<%=user.phone%>">
                                             </div>
 
                                         </div>
+                                    
                                         <div class="form-row">
                                             <div class="form-group">
-                                                <label for="">
+                                                <label for="email">
                                                     Email
                                                 </label>
-                                                <input type="email" readonly value="bush.bob@gmail.com">
+                                                <input id="email" name="email" type="text" readonly value="<%=user.email%>">
                                             </div>
 
                                         </div>
 
-                                        <div class="form-row">
+                                        <!-- <div class="form-row">
                                             <div class="form-group">
                                                 <label for="">
                                                     Address
@@ -79,13 +65,13 @@
                                                 <input type="text" readonly value="Romania">
                                             </div>
 
-                                        </div>
-
+                                        </div> -->
+                                        <%if(currentUser) {%>
                                         <div class="form-row">
                                             <button class="edit-btn" id="editBtn" type="button">EDIT</button>
-                                            <button class="edit-btn hidden" id="submitBtn" type="submit">SUBMIT</button>
-
+                                            <button class="edit-btn hidden" id="submitBtn" type="button">SUBMIT</button>
                                         </div>
+                                        <%}%>
                                     </form>
                                 </div>
                             </main>

@@ -59,7 +59,6 @@ exports.postRegister = (req, res) => {
   });
   req.on("end", () => {
     let obj = parse(body);
-    console.log(obj);
     let user = new User(obj.name, obj.email, obj.phone, obj.password)
       .save()
       .then((result) => {
@@ -141,6 +140,5 @@ function parseCookies(req) {
 exports.getCurrentUser = req => {
   const token = parseCookies(req).token;
   let payload = jwt.verify(token, secretJWT);
-  console.log(payload);
   return { _id: payload._id , _name: payload.name};
 }
