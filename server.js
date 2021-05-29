@@ -1,12 +1,14 @@
 const http = require("http");
 const ejs = require('ejs');
 
+
 const campsController = require("./controllers/campController");
 const utilController = require("./controllers/utilController");
 const adminController = require("./controllers/adminController");
 const authController = require("./controllers/authController");
 const errorController = require("./controllers/errorController");
 const profileController = require("./controllers/profileController");
+const apiRestController = require("./controllers/apiRestController");
 
 const mongoConnect = require('./util/database').mongoConnect;
 const { MongoClient } = require("mongodb");
@@ -62,6 +64,53 @@ const server = http.createServer((req, res) => {
       return res.end();
     }
     return authController.getRegister(req, res);
+  }
+  if(req.url === "/api/camps" && req.method === "GET")
+  {
+    return apiRestController.getCamps(req,res);
+  }
+  if(req.url.match(/\/api\/camps\/\w+/) && req.method === "GET")
+  {
+    const id = req.url.split('/')[3];
+    return apiRestController.getCamp(req,res,id);
+  }
+  if(req.url.match(/\/api\/camps/) && req.method === "POST")
+  {
+    return apiRestController.postCamp(req,res);
+  }
+  if(req.url.match(/\/api\/camps/) && req.method === "PUT")
+  {
+    return apiRestController.putCamp(req,res);
+  }
+  if(req.url.match(/\/api\/camps/) && req.method === "DELETE")
+  {
+    return apiRestController.deleteCamp(req,res);
+  }
+  if(req.url === "/api/reviews" && req.method === "GET")
+  {
+    return apiRestController.getCamps(req,res);
+  }
+  if(req.url.match(/\/api\/reviews\/byCampId\/\w+/) && req.method === "GET")
+  {
+    const id = req.url.split('/')[4];
+    return apiRestController.getReviewsByCampId(req,res,id);
+  }
+  if(req.url.match(/\/api\/reviews\/\w+/) && req.method === "GET")
+  {
+    const id = req.url.split('/')[3];
+    return apiRestController.getReview(req,res,id);
+  }
+  if(req.url.match(/\/api\/reviews\//) && req.method === "POST")
+  {
+    return apiRestController.postReview(req,res);
+  }
+  if(req.url.match(/\/api\/reviews/) && req.method === "PUT")
+  {
+    return apiRestController.putReview(req,res);
+  }
+  if(req.url.match(/\/api\/reviews/) && req.method === "DELETE")
+  {
+    return apiRestController.deleteReview(req,res);
   }
   if (req.url === "/register" && req.method === "POST") {
     return authController.postRegister(req, res);

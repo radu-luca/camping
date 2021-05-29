@@ -59,7 +59,6 @@ exports.postRegister = (req, res) => {
   });
   req.on("end", () => {
     let obj = parse(body);
-    console.log(obj);
     let user = new User(obj.name, obj.email, obj.phone, obj.password)
       .save()
       .then((result) => {

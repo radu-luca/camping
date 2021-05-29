@@ -23,7 +23,6 @@ exports.postAdd = (req,res) => {
     let camp = new Camp(fields.name_camp, fields.price, fields.phone, fields.start_date, fields.end_date, fields.description, path.extname(files.imagini.name).toString())
       .save()
       .then(result=>{
-        console.log("Camp add succes");
         var oldPath = files.imagini.path;
         var newPath = path.join(__dirname, '..',"public/images")
                 + '/'+result.ops[0]._id.toString()+path.extname(files.imagini.name);
@@ -61,8 +60,6 @@ exports.postContact = (req, res) => {
     });
     req.on('end', () => {
         let obj = parse(body);
-        console.log(obj.email);
-        console.log(obj.message);
     });
     res.writeHead(302, {
         'Location': req.url
