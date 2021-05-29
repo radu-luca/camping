@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const secretJWT = 'lsfnlNnfLnf398U';
 const authController = require("./authController");
 const User = require("../models/user");
+const mongodb = require('mongodb');
 
 exports.getProfile = (req, res) => {
     let currentUserID = authController.getCurrentUser(req)._id;
@@ -18,7 +19,6 @@ exports.getProfile = (req, res) => {
 exports.getProfileById = (req,res,id) => {
     User.findById(id)
     .then(result =>{
-        console.log(result);
         if(result != null)
         {
             let currentUser = false;
@@ -51,3 +51,35 @@ exports.getProfileById = (req,res,id) => {
         console.log(err);
     })
 }
+
+exports.putProfile = (req,res,id) =>{
+    User.findById(id)
+    .then(result =>{
+        if(result)
+        {
+            let data = '';
+            req.on('data', chunk => {
+              data += chunk;
+            })
+            req.on('end', () => {
+            let obj = JSON.parse(data);
+            let objID = { _id: new mongodb.ObjectId(id) };
+            let objUser = { $set: {name: obj.name, email: obj.email, phone: obj.phone } };
+            User.updateUser(objID,objUser)
+             .then(res=>{
+                console.log("aaa");
+                res.writeHead(302, {
+                    Location: "/",
+                  });
+                  res.end();
+                });
+             });
+           
+        }
+    })
+    .catch(err => {
+        console.log(obj);
+    })
+}
+
+        

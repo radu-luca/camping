@@ -12,9 +12,21 @@ class User {
     save() {
         const db = getDb();
         return db.collection('users').insertOne(this);
-      }
+      };
+    static updateUser(id,obj) {
+      const db = getDb();
+      return db
+      .collection("users")
+      .updateOne(id,obj, function(err, res) {
+        if (err) throw err;
+        return new Promise((resolve, reject) => {
+          resolve(res)
+      })
+      });
+    };
+
    static findDb(emaill, passwordd) {
-       console.log(emaill, passwordd);
+      //  console.log(emaill, passwordd);
         const db = getDb();
     return db
     .collection('users')
@@ -40,6 +52,7 @@ class User {
             console.log(err);
           });
       }
+      
 }
 
 module.exports = User;

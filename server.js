@@ -40,6 +40,15 @@ const server = http.createServer((req, res) => {
     else
     return errorController.get404(req,res);
   }
+  if(req.url.match(/\/profile\/\w+/) && req.method === "PUT"){
+    const id = req.url.split('/')[2];
+    if(id.length == 24 && authController.isLoggedIn(req))
+    {
+     return profileController.putProfile(req,res,id);
+    } 
+    else
+    return errorController.get404(req,res);
+  }
   if (req.url === "/login" && req.method === "GET") {
     if (authController.isLoggedIn(req)) {
       redirect(res, "/")

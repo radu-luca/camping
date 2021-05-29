@@ -20,21 +20,27 @@
                                     <form action="">
                                         <div class="form-row">
                                             <div class="form-group">
+                                                <label for="name">
                                                     Name
-                                                <p><%=user.name%></p>
+                                                </label>
+                                                <input id="name" name="name" type="text" readonly value="<%=user.name%>">
                                             </div>
 
                                             <div class="form-group">
+                                                <label for="phone">
                                                     Phone
-                                                <p><%=user.phone%></p>
+                                                </label>
+                                                <input id="phone" name="phone" type="text" readonly value="<%=user.phone%>">
                                             </div>
 
                                         </div>
                                     
                                         <div class="form-row">
                                             <div class="form-group">
+                                                <label for="email">
                                                     Email
-                                                <p><%=user.email%></p>
+                                                </label>
+                                                <input id="email" name="email" type="text" readonly value="<%=user.email%>">
                                             </div>
 
                                         </div>
@@ -63,7 +69,7 @@
                                         <%if(currentUser) {%>
                                         <div class="form-row">
                                             <button class="edit-btn" id="editBtn" type="button">EDIT</button>
-                                            <button class="edit-btn hidden" id="submitBtn" type="submit">SUBMIT</button>
+                                            <button class="edit-btn hidden" id="submitBtn" type="button">SUBMIT</button>
                                         </div>
                                         <%}%>
                                     </form>
