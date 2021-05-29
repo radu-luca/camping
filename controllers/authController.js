@@ -27,7 +27,7 @@ exports.postLogin = (req, res) => {
     User.findDb(obj.email_log, obj.password_login).then((result) => {
       if (result) {
         // Create JWT
-        const payload = { name: result.name , _id: result._id}
+        const payload = { name: result.name, _id: result._id }
         const token = jwt.sign(payload, secretJWT, {
           algorithm: "HS256",
           expiresIn: 5000
@@ -139,6 +139,8 @@ function parseCookies(req) {
 }
 exports.getCurrentUser = req => {
   const token = parseCookies(req).token;
+
+  // Do a try - catch
   let payload = jwt.verify(token, secretJWT);
-  return { _id: payload._id , _name: payload.name};
+  return { _id: payload._id, _name: payload.name };
 }
