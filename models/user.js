@@ -17,12 +17,7 @@ class User {
       const db = getDb();
       return db
       .collection("users")
-      .updateOne(id,obj, function(err, res) {
-        if (err) throw err;
-        return new Promise((resolve, reject) => {
-          resolve(res)
-      })
-      });
+      .updateOne(id,obj);
     };
 
    static findDb(emaill, passwordd) {

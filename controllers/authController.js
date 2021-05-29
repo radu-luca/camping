@@ -141,6 +141,5 @@ function parseCookies(req) {
 exports.getCurrentUser = req => {
   const token = parseCookies(req).token;
   let payload = jwt.verify(token, secretJWT);
-  console.log(payload);
   return { _id: payload._id , _name: payload.name};
 }

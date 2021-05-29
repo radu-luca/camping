@@ -66,7 +66,7 @@ exports.putProfile = (req,res,id) =>{
             let objID = { _id: new mongodb.ObjectId(id) };
             let objUser = { $set: {name: obj.name, email: obj.email, phone: obj.phone } };
             User.updateUser(objID,objUser)
-             .then(res=>{
+             .then(response=>{
                 console.log("aaa");
                 res.writeHead(302, {
                     Location: "/",
