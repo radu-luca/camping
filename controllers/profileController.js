@@ -11,75 +11,78 @@ const mongodb = require('mongodb');
 exports.getProfile = (req, res) => {
     let currentUserID = authController.getCurrentUser(req)._id;
     res.writeHead(302, {
-        Location: "/profile/"+currentUserID,
-      });
-      res.end();
+        Location: "/profile/" + currentUserID,
+    });
+    res.end();
 };
 
-exports.getProfileById = (req,res,id) => {
+exports.getProfileById = (req, res, id) => {
     User.findById(id)
-    .then(result =>{
-        if(result != null)
-        {
-            let currentUser = false;
-            if(result._id == authController.getCurrentUser(req)._id)
-            currentUser = true;
+        .then(result => {
+            if (result != null) {
+                let currentUser = false;
+                if (result._id == authController.getCurrentUser(req)._id)
+                    currentUser = true;
 
-            // console.log(result);
-            let ejsContent = fs.readFileSync(
-                path.join(__dirname, "..", "views/profile.ejs"),
-                "utf-8"
-            );
-            let htmlRenderized = ejs.render(ejsContent, {
-                filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
-                user: {name: result.name,email: result.email, phone: result.phone},
-                currentUser: currentUser
-            });
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.end(htmlRenderized);
-        }
-        else
-        {
-            res.writeHead(302, {
-                Location: "/404",
-              });
-              res.end();
-        }
-
-    })
-    .catch(err => {
-        console.log(err);
-    })
-}
-
-exports.putProfile = (req,res,id) =>{
-    User.findById(id)
-    .then(result =>{
-        if(result)
-        {
-            let data = '';
-            req.on('data', chunk => {
-              data += chunk;
-            })
-            req.on('end', () => {
-            let obj = JSON.parse(data);
-            let objID = { _id: new mongodb.ObjectId(id) };
-            let objUser = { $set: {name: obj.name, email: obj.email, phone: obj.phone } };
-            User.updateUser(objID,objUser)
-             .then(response=>{
-                console.log("aaa");
-                res.writeHead(302, {
-                    Location: "/",
-                  });
-                  res.end();
+                // console.log(result);
+                let ejsContent = fs.readFileSync(
+                    path.join(__dirname, "..", "views/profile.ejs"),
+                    "utf-8"
+                );
+                let htmlRenderized = ejs.render(ejsContent, {
+                    filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
+                    user: { name: result.name, email: result.email, phone: result.phone },
+                    currentUser: currentUser
                 });
-             });
-           
-        }
-    })
-    .catch(err => {
-        console.log(obj);
-    })
+                res.writeHead(200, { "Content-Type": "text/html" });
+                res.end(htmlRenderized);
+            }
+            else {
+                res.writeHead(302, {
+                    Location: "/404",
+                });
+                res.end();
+            }
+
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
-        
+exports.putProfile = (req, res, id) => {
+    User.findById(id)
+        .then(result => {
+            if (result) {
+                let data = '';
+                req.on('data', chunk => {
+                    data += chunk;
+                })
+                req.on('end', () => {
+                    let obj = JSON.parse(data);
+                    let objID = { _id: new mongodb.ObjectId(id) };
+                    let objUser = {
+                        $set: {
+                            name: obj.name,
+                            email: obj.email, phone: obj.phone
+                        }
+                    };
+                    User.updateUser(objID, objUser)
+                        .then(response => {
+                            console.log("/profile/" + id);
+                            res.writeHead(302, {
+                                Location: "http://localhost:5000/profile/" + id,
+                            });
+                            res.end();
+                        });
+                });
+
+            } else {
+                res.end();
+            }
+        })
+        .catch(err => {
+            console.log(obj);
+        })
+}
+
