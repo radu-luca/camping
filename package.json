@@ -22,7 +22,8 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "formidable": "^1.2.2",
-    "mongodb": "^3.6.9"
+    "mongodb": "^3.6.9",
+    "node-fetch": "^2.6.1"
   },
   "description": ""
 }

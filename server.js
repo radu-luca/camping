@@ -9,11 +9,13 @@ const authController = require("./controllers/authController");
 const errorController = require("./controllers/errorController");
 const profileController = require("./controllers/profileController");
 const apiRestController = require("./controllers/apiRestController");
+const oauthController = require("./controllers/oauthController");
 
 const mongoConnect = require('./util/database').mongoConnect;
 const { MongoClient } = require("mongodb");
 
 const server = http.createServer((req, res) => {
+  let routes = req.url.split("/");
 
   if (req.url === "/" && req.method === "GET") {
     return campsController.getHome(req, res);
@@ -37,10 +39,10 @@ const server = http.createServer((req, res) => {
   }
   if (req.url.match(/\/profile\/\w+/) && req.method === "GET") {
     const id = req.url.split('/')[2];
-    if (id.length == 24)
-      return profileController.getProfileById(req, res, id);
-    else
-      return errorController.get404(req, res);
+    // if (id.length == 24)
+    return profileController.getProfileById(req, res, id);
+    // else
+    return errorController.get404(req, res);
   }
   if (req.url.match(/\/profile\/\w+/) && req.method === "PUT") {
     const id = req.url.split('/')[2];
@@ -125,6 +127,12 @@ const server = http.createServer((req, res) => {
   if (req.url == "/add" && req.method === "POST") {
     return adminController.postAdd(req, res);
   }
+
+  if (routes[2] === "oauth" && req.method === "GET") {
+    console.log("noroc");
+    return oauthController.getCallback(req, res);
+  }
+
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
   }

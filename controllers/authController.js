@@ -4,8 +4,28 @@ const ejs = require("ejs");
 const { parse } = require("querystring");
 const jwt = require('jsonwebtoken');
 const secretJWT = 'lsfnlNnfLnf398U';
+const fetch = require('node-fetch');
 
 const User = require("../models/user");
+
+function loginGitHub(name, id, res) {
+  // Create JWT
+  const payload = { name: name, _id: id }
+  const token = jwt.sign(payload, secretJWT, {
+    algorithm: "HS256",
+    expiresIn: 5000
+  });
+  // Write token to cookie
+  res.writeHead(302, {
+    'Location': '/',
+    'Set-Cookie': 'token=' + token + '; Path=/'
+
+  });
+
+  res.end();
+
+  console.log("vezi ca am trimis");
+}
 
 exports.getLogin = (req, res) => {
   let ejsContent = fs.readFileSync(
@@ -16,6 +36,36 @@ exports.getLogin = (req, res) => {
   res.writeHead(200, { "Content-Type": "text/html" });
   res.end(htmlRenderized);
 };
+
+exports.postLoginGithub = (req, res, userData, access_token) => {
+
+  // If user with access_token exists then login, else register
+  console.log(userData.id)
+  User.findByToken(userData.id)
+    .then(result => {
+      console.log(result)
+      if (result) {
+        // Login
+        console.log("Exista userul deja!");
+        loginGitHub(result.name, result._id, res);
+      } else {
+        console.log("Nu exista userul!");
+        // Register
+        // console.log(userDataJson);
+        let user = new User(userData.name, null, null, null, userData.id)
+          .save()
+          .then((response) => {
+            let userModel = response.ops[0];
+            console.log("User created");
+            loginGitHub(userModel.name, userModel._id, res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+      }
+    })
+}
 
 exports.postLogin = (req, res) => {
   let body = "";
@@ -41,7 +91,7 @@ exports.postLogin = (req, res) => {
         console.log("Login successful");
       }
       else {
-        res.writeHead(301, {
+        res.writeHead(302, {
           'Location': '/'
         });
         console.log("Login unsuccessful");
