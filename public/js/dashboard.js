@@ -11,8 +11,18 @@ function updateInfo() {
   let phone = document.getElementById("phone").value;
   let email = document.getElementById("email").value;
   let obj = { name: name, phone: phone, email: email };
-  console.log(document.URL);
-  postData(document.URL, obj);
+
+  fetch(document.URL, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  }).then(data => data.json())
+    .then(dataJson => {
+      window.location.href = "http://localhost:5000/profile/" + dataJson.id
+    })
+
 }
 
 function makeFormEditable() {
@@ -23,20 +33,4 @@ function makeFormEditable() {
 
   editBtn.classList.add("hidden");
   submitBtn.classList.remove("hidden");
-}
-
-// Example POST method implementation:
-async function postData(url = '', data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    // redirect: 'follow', // manual, *follow, error
-    // referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  console.log(response);
-  window.location.href = response.url;
 }

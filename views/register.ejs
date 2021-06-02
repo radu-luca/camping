@@ -1,71 +1,74 @@
 <%- include('includes/head.ejs') %>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
-<link rel="stylesheet" href="../public/styles/registerStyles.css">
-</head>
-<%- include('includes/navbar.ejs') %>
-<div class="central-part">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Sofia|Open+Sans">
+    <link rel="stylesheet" href="../public/styles/registerStyles.css">
+    </head>
+    <%- include('includes/navbar.ejs') %>
+        <div class="central-part">
 
-    <main class="main__side">
-        <div class="half">
-            <div class="register-part">
-                <h1 class="header-register">Create Account</h1>
-                <div class="register-form">
+            <main class="main__side">
+                <div class="half">
+                    <div class="register-part">
+                        <h1 class="header-register">Create Account</h1>
+                        <div class="register-form">
 
-                    <form action="/register" method="POST">
-                        <span class="align_input">
+                            <form action="/register" method="POST">
+                                <span class="align_input">
 
-                        </span>
+                                </span>
 
-                        <span class="align_input">
-                            <label for="name" class="label_input">Name*</label>
-                            <input type="text" class="input_inline" name="name" required>
-                        </span>
+                                <span class="align_input">
+                                    <label for="name" class="label_input">Name*</label>
+                                    <input type="text" class="input_inline" name="name" required>
+                                </span>
 
-                        <label for="email" class="label_input">Email adress*</label>
-                        <input type="email" class="input_inline" name="email" required>
+                                <label for="email" class="label_input">Email adress*</label>
+                                <input type="email" class="input_inline" name="email" required>
 
-                        <label for="phone" class="label_input">Phone</label>
-                        <input type="text" class="input_inline" name="phone">
+                                <label for="phone" class="label_input">Phone</label>
+                                <input type="text" class="input_inline" name="phone">
 
-                        <label for="password" class="label_input">Password*</label>
-                        <input type="password" class="input_inline" name="password" required>
+                                <label for="password" class="label_input">Password*</label>
+                                <input type="password" class="input_inline" name="password" required>
 
-                        <p class="required_text">Fields marked * are required.</p>
+                                <p class="required_text">Fields marked * are required.</p>
 
-                        <button type="submit" class="btn_signup">Sign Up</button>
-                    </form>
-                    <button class="git-btn">
-                            <img src="../public/images/github-icon.png" alt="git hub sign in">
-                            <span>
-                                Sign in with GitHub
-                            </span>
-                    </button>
+                                <button type="submit" class="btn_signup">Sign Up</button>
+                            </form>
+                            <a href="https://github.com/login/oauth/authorize?client_id=d0a7b855a7390374ae5c"
+                                class="git-btn">
+                                <img src="../public/images/github-icon.png" alt="git hub sign in">
+                                <span>
+                                    Sign in with GitHub
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="half">
+                    <div class="img_gallery">
+                        <span class="card_imgInfo ">
+                            <img src="../public/images/weather.svg" alt="Wather info">
+                            <p class="small_txt">Get real-time weather information by email and sms about booked
+                                campsites</p>
+                        </span>
+
+                        <span class="card_imgInfo card_right">
+                            <img src="../public/images/map_Dark.svg" alt="Map with all locations">
+                            <p class="small_txt">Find and save your favorite locations using an advanced map</p>
+                        </span>
+
+                        <span class="card_imgInfo test card_center">
+                            <img src="../public/images/personal_info.svg" alt="Personal info">
+                            <p class="small_txt">Your personal data is protected according to the privacy policy</p>
+                        </span>
+                    </div>
+                </div>
+
+            </main>
         </div>
 
-        <div class="half">
-            <div class="img_gallery">
-                <span class="card_imgInfo ">
-                    <img src="../public/images/weather.svg"  alt="Wather info">
-                    <p class="small_txt">Get real-time weather information by email and sms about booked campsites</p>
-                </span>
+        <%- include('includes/footer.ejs') %>
+            </body>
 
-                <span class="card_imgInfo card_right">
-                    <img src="../public/images/map_Dark.svg"   alt="Map with all locations">
-                    <p class="small_txt">Find and save your favorite locations using an advanced map</p>
-                </span>
-
-                <span class="card_imgInfo test card_center">
-                    <img src="../public/images/personal_info.svg"  alt="Personal info">
-                    <p class="small_txt">Your personal data is protected according to the privacy policy</p>
-                </span>
-            </div>
-        </div>
-
-    </main>
-</div>
-
-<%- include('includes/footer.ejs') %>
-</body>
-</html>
+            </html>
