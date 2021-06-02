@@ -54,12 +54,14 @@ exports.putProfile = (req, res, id) => {
     User.findById(id)
         .then(result => {
             if (result) {
+                console.log(result);
                 let data = '';
                 req.on('data', chunk => {
                     data += chunk;
                 })
                 req.on('end', () => {
                     let obj = JSON.parse(data);
+
                     let objID = { _id: new mongodb.ObjectId(id) };
                     let objUser = {
                         $set: {
@@ -69,11 +71,10 @@ exports.putProfile = (req, res, id) => {
                     };
                     User.updateUser(objID, objUser)
                         .then(response => {
-                            console.log("/profile/" + id);
-                            res.writeHead(302, {
-                                Location: "http://localhost:5000/profile/" + id,
+                            res.writeHead(200, {
+                                'Content-type': 'application/json'
                             });
-                            res.end();
+                            res.end(JSON.stringify({ id: id }));
                         });
                 });
 

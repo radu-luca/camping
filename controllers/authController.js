@@ -4,8 +4,28 @@ const ejs = require("ejs");
 const { parse } = require("querystring");
 const jwt = require('jsonwebtoken');
 const secretJWT = 'lsfnlNnfLnf398U';
+const fetch = require('node-fetch');
 
 const User = require("../models/user");
+
+function loginGitHub(name, id, res) {
+  // Create JWT
+  const payload = { name: name, _id: id }
+  const token = jwt.sign(payload, secretJWT, {
+    algorithm: "HS256",
+    expiresIn: 5000
+  });
+  // Write token to cookie
+  res.writeHead(302, {
+    'Location': '/',
+    'Set-Cookie': 'token=' + token + '; Path=/'
+
+  });
+
+  res.end();
+
+  console.log("vezi ca am trimis");
+}
 
 exports.getLogin = (req, res) => {
   let ejsContent = fs.readFileSync(
@@ -17,6 +37,36 @@ exports.getLogin = (req, res) => {
   res.end(htmlRenderized);
 };
 
+exports.postLoginGithub = (req, res, userData, access_token) => {
+
+  // If user with access_token exists then login, else register
+  console.log(userData.id)
+  User.findByToken(userData.id)
+    .then(result => {
+      console.log(result)
+      if (result) {
+        // Login
+        console.log("Exista userul deja!");
+        loginGitHub(result.name, result._id, res);
+      } else {
+        console.log("Nu exista userul!");
+        // Register
+        // console.log(userDataJson);
+        let user = new User(userData.name, null, null, null, userData.id)
+          .save()
+          .then((response) => {
+            let userModel = response.ops[0];
+            console.log("User created");
+            loginGitHub(userModel.name, userModel._id, res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+      }
+    })
+}
+
 exports.postLogin = (req, res) => {
   let body = "";
   req.on("data", (item) => {
@@ -27,7 +77,7 @@ exports.postLogin = (req, res) => {
     User.findDb(obj.email_log, obj.password_login).then((result) => {
       if (result) {
         // Create JWT
-        const payload = { name: result.name , _id: result._id}
+        const payload = { name: result.name, _id: result._id }
         const token = jwt.sign(payload, secretJWT, {
           algorithm: "HS256",
           expiresIn: 5000
@@ -41,7 +91,7 @@ exports.postLogin = (req, res) => {
         console.log("Login successful");
       }
       else {
-        res.writeHead(301, {
+        res.writeHead(302, {
           'Location': '/'
         });
         console.log("Login unsuccessful");
@@ -139,6 +189,8 @@ function parseCookies(req) {
 }
 exports.getCurrentUser = req => {
   const token = parseCookies(req).token;
+
+  // Do a try - catch
   let payload = jwt.verify(token, secretJWT);
-  return { _id: payload._id , _name: payload.name};
+  return { _id: payload._id, _name: payload.name };
 }
