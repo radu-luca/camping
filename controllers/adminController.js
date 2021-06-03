@@ -20,7 +20,7 @@ exports.postAdd = (req,res) => {
     form.parse(req, function(err, fields, files){
         
 
-    let camp = new Camp(fields.name_camp, fields.price, fields.phone, fields.start_date, fields.end_date, fields.description, path.extname(files.imagini.name).toString())
+    let camp = new Camp(fields.name_camp, fields.price, fields.phone, fields.start_date, fields.end_date, fields.description, path.extname(files.imagini.name).toString(),fields.address)
       .save()
       .then(result=>{
         var oldPath = files.imagini.path;
