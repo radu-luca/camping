@@ -1,7 +1,9 @@
 <%- include('includes/head.ejs') %>
     <link rel="stylesheet" href="../public/styles/campFile.css">
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
-    </head>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+    
+</head>
     <% if(!isLoggedIn) { %>
         <%- include('includes/navbar.ejs') %>
             <%} else {%>
@@ -15,10 +17,23 @@
                                     </div>
                                     <div class="camp-info">
                                         <div class="info-title">
-                                            test
+                                            Phone:
+                                            <div class="info-subtitle">
+                                                <%= camp.phone%>
+                                            </div>
+
                                         </div>
                                         <div class="info">
-                                            test
+                                            Period of validity:
+                                            <div class="info-subtitle">
+                                                From: <%=camp.startDate%> 
+                                            </div>
+                                            <div class="info-subtitle">
+                                                Up to: <%= camp.endDate%>
+                                            </div>
+                                        </div>
+                                        <div class="info" id="map">
+
                                         </div>
                                     </div>
                                     <div class="camp-map">
@@ -103,6 +118,39 @@
                         </div>
                         <%- include('includes/footer.ejs') %>
                             <script src="../public/js/campFile.js"></script>
+                            <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+                            <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+                            <script>
+                                mapboxgl.accessToken = 'pk.eyJ1IjoibHVjYXJhZHUiLCJhIjoiY2twaDJ4bDA3MmgwbjJwbGw5MHRjOGxwdyJ9.uaJt77I81Xp_s1rZyDMTBA';
+                                var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+                                mapboxClient.geocoding
+                                    .forwardGeocode({
+                                        query: "<%= camp.address %>",
+                                        autocomplete: false,
+                                        limit: 1
+                                    })
+                                    .send()
+                                    .then(function (response) {
+                                        if (
+                                            response &&
+                                            response.body &&
+                                            response.body.features &&
+                                            response.body.features.length
+                                        ) {
+                                            var feature = response.body.features[0];
+
+                                            var map = new mapboxgl.Map({
+                                                container: 'map',
+                                                style: 'mapbox://styles/mapbox/streets-v11',
+                                                center: feature.center,
+                                                zoom: 10
+                                            });
+
+                                            // Create a marker and add it to the map.
+                                            new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+                                        }
+                                    });
+                            </script>
                             </body>
 
                             </html>

@@ -9,7 +9,8 @@ class Camp {
     startDate,
     endDate,
     description,
-    imgExtension
+    imgExtension,
+    address
   ) {
     this.name = name;
     this.price = price;
@@ -18,6 +19,7 @@ class Camp {
     this.endDate = endDate;
     this.description = description;
     this.imgExtension = imgExtension;
+    this.address = address;
   }
   save() {
     const db = getDb();
@@ -40,8 +42,7 @@ class Camp {
 
   static addTextIndex() {
     const db = getDb();
-    return db.collection("camps")
-      .createIndex({ name: "text" });
+    return db.collection("camps").createIndex({ name: "text" });
   }
 
   static updateCamp(id, obj) {
