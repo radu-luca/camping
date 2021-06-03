@@ -1,7 +1,6 @@
 const http = require("http");
 const ejs = require('ejs');
 
-
 const campsController = require("./controllers/campController");
 const utilController = require("./controllers/utilController");
 const adminController = require("./controllers/adminController");
@@ -10,6 +9,7 @@ const errorController = require("./controllers/errorController");
 const profileController = require("./controllers/profileController");
 const apiRestController = require("./controllers/apiRestController");
 const oauthController = require("./controllers/oauthController");
+const searchController = require("./controllers/searchController");
 
 const mongoConnect = require('./util/database').mongoConnect;
 const { MongoClient } = require("mongodb");
@@ -126,6 +126,10 @@ const server = http.createServer((req, res) => {
   }
   if (req.url == "/add" && req.method === "POST") {
     return adminController.postAdd(req, res);
+  }
+
+  if (req.url === "/search" && req.method === "POST") {
+    return searchController.search(req, res);
   }
 
   if (routes[2] === "oauth" && req.method === "GET") {
