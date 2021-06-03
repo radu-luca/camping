@@ -11,6 +11,7 @@ const apiRestController = require("./controllers/apiRestController");
 const oauthController = require("./controllers/oauthController");
 const searchController = require("./controllers/searchController");
 
+
 const mongoConnect = require('./util/database').mongoConnect;
 const { MongoClient } = require("mongodb");
 
@@ -136,6 +137,7 @@ const server = http.createServer((req, res) => {
     console.log("noroc");
     return oauthController.getCallback(req, res);
   }
+
 
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
