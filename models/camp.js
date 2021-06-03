@@ -38,6 +38,12 @@ class Camp {
       });
   }
 
+  static addTextIndex() {
+    const db = getDb();
+    return db.collection("camps")
+      .createIndex({ name: "text" });
+  }
+
   static updateCamp(id, obj) {
     const db = getDb();
     return db.collection("camps").updateOne(id, obj);
@@ -46,6 +52,10 @@ class Camp {
   static deleteCamp(id) {
     const db = getDb();
     return db.collection("camps").deleteOne(id);
+  }
+
+  static search(query) {
+    return getDb().collection("camps").find(query).toArray();
   }
 
   static findById(campID) {

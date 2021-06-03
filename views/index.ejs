@@ -34,8 +34,10 @@
                                 </select>
 
                                 <div class="search-bar">
-                                    <input type="text" placeholder="Search..." name="search">
-                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                    <form action="/search" method="POST">
+                                        <input type="text" placeholder="Search..." name="search">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
                                 </div>
 
                             </div>
@@ -45,9 +47,7 @@
                             <main class="main__side">
 
                                 <div class="gallery">
-                                    <%
-                                    for(let camp of camps) {
-                                        %>
+                                    <% for(let camp of camps) { %>
                                         <div class="gallery__thumbnail">
                                             <a href="/campground/<%= camp._id %>">
                                                 <img src="../public/images/<%= camp._id %><%= camp.imgExtension %>"
@@ -62,11 +62,9 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <%
-                                    }
-                                    %>
-                                    
-                                   
+                                        <% } %>
+
+
 
                                 </div>
 
