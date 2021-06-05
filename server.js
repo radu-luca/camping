@@ -134,10 +134,12 @@ const server = http.createServer((req, res) => {
   }
 
   if (routes[2] === "oauth" && req.method === "GET") {
-    console.log("noroc");
     return oauthController.getCallback(req, res);
   }
 
+  if (req.url === "/book" && req.method === "POST") {
+    return campsController.addBook(req, res);
+  }
 
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);

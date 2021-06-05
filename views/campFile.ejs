@@ -2,8 +2,8 @@
     <link rel="stylesheet" href="../public/styles/campFile.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
-    
-</head>
+
+    </head>
     <% if(!isLoggedIn) { %>
         <%- include('includes/navbar.ejs') %>
             <%} else {%>
@@ -26,7 +26,7 @@
                                         <div class="info">
                                             Period of validity:
                                             <div class="info-subtitle">
-                                                From: <%=camp.startDate%> 
+                                                From: <%=camp.startDate%>
                                             </div>
                                             <div class="info-subtitle">
                                                 Up to: <%= camp.endDate%>
@@ -59,6 +59,20 @@
                                                 <%= camp.description %>
                                             </div>
                                             <div class="submited-by">Submited by</div>
+
+                                            <div class="booking">
+                                                <form action="/book" method="POST" class="book-form">
+                                                    <label class="book-label">Starting date:
+                                                        <input type="date" id="start-booking" name="start-booking"
+                                                            min="<%=camp.startDate%>" max="<%=camp.endDate%>" required>
+                                                    </label>
+                                                    <label class="book-label" id="end-booking-label">Ending date:
+                                                        <input type="date" id="end-booking" name="end-booking"
+                                                            min="<%=camp.startDate%>" max="<%=camp.endDate%>" required>
+                                                    </label>
+                                                    <input type="submit" value="Book" class="book-btn">
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="camp-comments">

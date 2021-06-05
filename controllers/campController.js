@@ -6,6 +6,19 @@ const Camp = require("../models/camp");
 const Review = require("../models/review");
 const { parse } = require("querystring");
 
+exports.addBook = (req, res) => {
+  // Add to books database
+
+  let body = "";
+  req.on("data", (item) => {
+    body += item.toString();
+  });
+  req.on("end", () => {
+    let obj = parse(body);
+    console.log(obj);
+  });
+}
+
 exports.getHome = (req, res) => {
   Camp.fetchAll()
     .then((result) => {
