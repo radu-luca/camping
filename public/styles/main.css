@@ -78,7 +78,7 @@ a {
 .menuBtn{
    display: none;
    background-color: rgb(250, 0, 50);
-   font-size: 1rem;
+   font-size: x-large;
    height: 100%;
    width: 15%;
    border:none;
