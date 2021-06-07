@@ -141,6 +141,10 @@ const server = http.createServer((req, res) => {
     return campsController.addBook(req, res);
   }
 
+  if (req.url === "/bookings" && req.method === "GET") {
+    return campsController.getBookings(req, res);
+  }
+
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
   }

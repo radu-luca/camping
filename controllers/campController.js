@@ -4,11 +4,20 @@ const ejs = require("ejs");
 const authController = require("./authController");
 const Camp = require("../models/camp");
 const Review = require("../models/review");
+const Book = require("../models/book");
 const { parse } = require("querystring");
 
-exports.addBook = (req, res) => {
-  // Add to books database
+exports.getBookings = (req, res) => {
+  Book.fetchAll()
+    .then(bookings => {
+      res.writeHead(200, {
+        'Content-type': 'application/json'
+      })
+      res.end(JSON.stringify(bookings));
+    })
+}
 
+exports.addBook = (req, res) => {
   let body = "";
   req.on("data", (item) => {
     body += item.toString();
@@ -16,6 +25,25 @@ exports.addBook = (req, res) => {
   req.on("end", () => {
     let obj = parse(body);
     console.log(obj);
+    // user_id and camp_id ???
+    let currentUser = authController.getCurrentUser(req);
+    let campID = req.headers.referer.split("/")[4];
+    Camp.findById(campID)
+      .then(camp => {
+        let book = new Book(obj.startBooking, obj.endBooking, currentUser._id, campID, camp.name)
+          .save()
+          .then((result) => {
+            console.log("booking created");
+            res.writeHead(302, {
+              Location: req.headers.referer,
+            });
+            res.end();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+
   });
 }
 

@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const secretJWT = 'lsfnlNnfLnf398U';
 const authController = require("./authController");
 const User = require("../models/user");
+const Book = require("../models/book");
 const mongodb = require('mongodb');
 
 exports.getProfile = (req, res) => {
@@ -29,13 +30,21 @@ exports.getProfileById = (req, res, id) => {
                     path.join(__dirname, "..", "views/profile.ejs"),
                     "utf-8"
                 );
-                let htmlRenderized = ejs.render(ejsContent, {
-                    filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
-                    user: { name: result.name, email: result.email, phone: result.phone },
-                    currentUser: currentUser
-                });
-                res.writeHead(200, { "Content-Type": "text/html" });
-                res.end(htmlRenderized);
+
+                let bookings = Book.fetchAllById(id)
+                    .then(bookings => {
+                        // console.log(bookings);
+                        let htmlRenderized = ejs.render(ejsContent, {
+                            filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
+                            user: { name: result.name, email: result.email, phone: result.phone },
+                            currentUser: currentUser,
+                            bookings: bookings
+                        });
+                        res.writeHead(200, { "Content-Type": "text/html" });
+                        res.end(htmlRenderized);
+                    })
+
+
             }
             else {
                 res.writeHead(302, {

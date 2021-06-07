@@ -106,6 +106,23 @@ html, body {
 .edit-btn:focus {
     outline: none;
 }
+
+.booking-container {
+    border-radius: 3px;
+    margin: 1em 0;
+    width: 60%;
+    text-align: center;
+    font-family: cursive;
+    min-width: 200px;
+    background: mintcream;
+    border: none;
+    box-shadow: 1px 1px 2px 1px darkgrey;
+}
+
+.bookings-title {
+    font-family: cursive;
+    font-weight: 500;
+}
  
 @media screen and (max-width: 1100px) {
     .form-row {

@@ -11,36 +11,70 @@
                                 <div class="left__side">
                                     <div class="avatar-thumbnail">
                                         <img src="../public/images/default_avatar.png" alt="">
-                                        <h3><%= user.name%></h3>
+                                        <h3>
+                                            <%= user.name%>
+                                        </h3>
                                     </div>
+
+                                    <%if(currentUser) {%>
+                                        <h3 class="bookings-title">My bookings:</h3>
+                                        <%for(let booking of bookings) {%>
+                                            <div class="booking-container">
+
+                                                <p>
+                                                    <i class="fas fa-hourglass-start"></i>
+                                                    <%= booking.startDate %>
+
+                                                </p>
+
+                                                <p>
+                                                    <i class="fas fa-hourglass-end"></i>
+                                                    <%= booking.endDate %>
+                                                </p>
+
+                                                <p>
+                                                    <i class="fas fa-campground"></i>
+                                                    <a href="/campground/<%= booking.campgroundID %>">
+                                                        <%= booking.campName %>
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <%}%>
+                                                <%}%>
+
                                 </div>
 
                                 <div class="right__side">
-                                    <h1><%= user.name %>'s DASHBOARD</h1>
+                                    <h1>
+                                        <%= user.name %>'s DASHBOARD
+                                    </h1>
                                     <form action="">
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label for="name">
                                                     Name
                                                 </label>
-                                                <input id="name" name="name" type="text" readonly value="<%=user.name%>">
+                                                <input id="name" name="name" type="text" readonly
+                                                    value="<%=user.name%>">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="phone">
                                                     Phone
                                                 </label>
-                                                <input id="phone" name="phone" type="text" readonly value="<%=user.phone%>">
+                                                <input id="phone" name="phone" type="text" readonly
+                                                    value="<%=user.phone%>">
                                             </div>
 
                                         </div>
-                                    
+
                                         <div class="form-row">
                                             <div class="form-group">
                                                 <label for="email">
                                                     Email
                                                 </label>
-                                                <input id="email" name="email" type="text" readonly value="<%=user.email%>">
+                                                <input id="email" name="email" type="text" readonly
+                                                    value="<%=user.email%>">
                                             </div>
 
                                         </div>
@@ -67,11 +101,12 @@
 
                                         </div> -->
                                         <%if(currentUser) {%>
-                                        <div class="form-row">
-                                            <button class="edit-btn" id="editBtn" type="button">EDIT</button>
-                                            <button class="edit-btn hidden" id="submitBtn" type="button">SUBMIT</button>
-                                        </div>
-                                        <%}%>
+                                            <div class="form-row">
+                                                <button class="edit-btn" id="editBtn" type="button">EDIT</button>
+                                                <button class="edit-btn hidden" id="submitBtn"
+                                                    type="button">SUBMIT</button>
+                                            </div>
+                                            <%}%>
                                     </form>
                                 </div>
                             </main>
