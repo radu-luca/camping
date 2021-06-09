@@ -247,8 +247,46 @@ text-shadow: 0 2px 5px rgba(0,0,0,.5);
 .info-subtitle{
   margin-top: 0.2em;
 }
+.description-cmp-info p{
+  overflow-wrap: anywhere;
+}
+
+.weather-container {
+  display: flex;
+  border: 2px solid lightslategray;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.weather-container .left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.weather-container .left span {
+  text-align: center;
+}
+
+.side-part .btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.weather-container .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+
 #map {
-  height: 90px;
+  height: 180px;
   }
 
 @media screen and (max-width: 700px) {

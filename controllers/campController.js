@@ -6,6 +6,8 @@ const Camp = require("../models/camp");
 const Review = require("../models/review");
 const Book = require("../models/book");
 const { parse } = require("querystring");
+const mongodb = require('mongodb');
+const { default: fetch } = require("node-fetch");
 
 exports.getBookings = (req, res) => {
   Book.fetchAll()
@@ -47,6 +49,19 @@ exports.addBook = (req, res) => {
   });
 }
 
+exports.deleteBooking = (req, res, id) => {
+  let objId = { _id: new mongodb.ObjectId(id) };
+
+  Book.deleteBooking(objId)
+    .then(result => {
+      res.end();
+    })
+    .catch(err => {
+      console.log(err);
+      res.end("Error!");
+    })
+}
+
 exports.getHome = (req, res) => {
   Camp.fetchAll()
     .then((result) => {
@@ -82,18 +97,35 @@ exports.getCamp = (req, res, id) => {
     .then((result) => {
       Review.findByCampId(id)
         .then((reviews) => {
-          let ejsContent = fs.readFileSync(
-            path.join(__dirname, "..", "views/campFile.ejs"),
-            "utf-8"
-          );
-          let htmlRenderized = ejs.render(ejsContent, {
-            filename: "views/campFile.ejs",
-            isLoggedIn: authController.isLoggedIn(req),
-            camp: result,
-            reviews: reviews,
-          });
-          res.writeHead(200, { "Content-Type": "text/html" });
-          res.end(htmlRenderized);
+          fetch(`https://weatherbit-v1-mashape.p.rapidapi.com/forecast/daily%22?city=${result.city}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              "x-rapidapi-key": "ebd8dc8590msh39bba36e9620903p1d5640jsnd7c43745d0a5",
+              "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
+              "useQueryString": true
+            },
+          }).then(data => data.json())
+            .then(dataJson => {
+              console.log(dataJson);
+              let ejsContent = fs.readFileSync(
+                path.join(__dirname, "..", "views/campFile.ejs"),
+                "utf-8"
+              );
+              let htmlRenderized = ejs.render(ejsContent, {
+                filename: "views/campFile.ejs",
+                isLoggedIn: authController.isLoggedIn(req),
+                camp: result,
+                reviews: reviews,
+                weather: dataJson.data
+              });
+              res.writeHead(200, { "Content-Type": "text/html" });
+              res.end(htmlRenderized);
+            })
+            .catch(err => {
+              console.log(err);
+            })
+
         })
         .catch((err) => {
           console.log(err);
@@ -114,6 +146,7 @@ exports.postReview = (req, res) => {
     // console.log(obj);
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
+    console.log(obj);
     let review = new Review(obj.reviewText, obj.star, currentUser._id, campID, currentUser._name)
       .save()
       .then((result) => {

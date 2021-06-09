@@ -22,6 +22,11 @@
     display: flex;
     align-items: center;
 }
+
+.git-btn:hover {
+    opacity: 0.8;
+}
+
 .git-btn img {
     width: 10%;
     min-width: 30px;

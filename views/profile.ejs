@@ -16,10 +16,10 @@
                                         </h3>
                                     </div>
 
-                                    <%if(currentUser) {%>
+                                    <%if(currentUser && bookings.length> 0) {%>
                                         <h3 class="bookings-title">My bookings:</h3>
                                         <%for(let booking of bookings) {%>
-                                            <div class="booking-container">
+                                            <div class="booking-container" id="<%= booking._id %>">
 
                                                 <p>
                                                     <i class="fas fa-hourglass-start"></i>
@@ -38,6 +38,9 @@
                                                         <%= booking.campName %>
                                                     </a>
                                                 </p>
+                                                <!-- Cancel button -->
+                                                <button class="edit-btn" id="cancelBooking"
+                                                    type="button">Cancel</button>
                                             </div>
                                             <%}%>
                                                 <%}%>

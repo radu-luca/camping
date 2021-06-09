@@ -14,6 +14,11 @@ class Book {
         return db.collection("books").insertOne(this);
     }
 
+    static deleteBooking(id) {
+        const db = getDb();
+        return db.collection("books").deleteOne(id);
+    }
+
     static fetchAll() {
         const db = getDb();
         return db
