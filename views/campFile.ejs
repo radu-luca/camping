@@ -39,6 +39,54 @@
                                     <div class="camp-map">
 
                                     </div>
+                                    <% let i=0; %>
+                                        <%for(let dayWeather of weather) {%>
+                                            <%if(i < 3){%>
+                                                <div class="weather-container">
+                                                    <div class="left">
+                                                        <img src="https://www.weatherbit.io/static/img/icons/<%=dayWeather.weather.icon%>.png"
+                                                            alt="Weather">
+                                                        <span>
+                                                            <%= dayWeather.temp %> &#176C
+                                                        </span>
+                                                    </div>
+                                                    <div class="right">
+                                                        <span>
+                                                            <%= dayWeather.datetime %>
+                                                        </span>
+                                                        <span>Min: <%= dayWeather.min_temp %> &#176C</span>
+                                                        <span>Max: <%= dayWeather.max_temp %> &#176C</span>
+                                                    </div>
+                                                </div>
+                                                <% i++%>
+                                                    <% } else { %>
+                                                        <div class="weather-container hidden">
+                                                            <div class="left">
+                                                                <img src="https://www.weatherbit.io/static/img/icons/<%=dayWeather.weather.icon%>.png"
+                                                                    alt="Weather">
+                                                                <span>
+                                                                    <%= dayWeather.temp %> &#176C
+                                                                </span>
+                                                            </div>
+                                                            <div class="right">
+                                                                <span>
+                                                                    <%= dayWeather.datetime %>
+                                                                </span>
+                                                                <span>Min: <%= dayWeather.min_temp %> &#176C</span>
+                                                                <span>Max: <%= dayWeather.max_temp %> &#176C</span>
+                                                            </div>
+                                                        </div>
+                                                        <% } %>
+                                                            <% } %>
+                                                                <div class="btn-container">
+                                                                    <button type="button" id="displayAllWeatherBtn">Show
+                                                                        more</button>
+
+                                                                    <button type="button" id="hideAllWeatherBtn"
+                                                                        class="hidden">Show
+                                                                        less</button>
+                                                                </div>
+
                                 </div>
                                 <div class="main-content">
                                     <div class="camp-details">
@@ -55,8 +103,12 @@
                                                 </div>
                                             </div>
                                             <div class="stars-cmp-info"></div>
-                                            <div class="description-cmp-info">Lorem ipsum dolor, sit amet consectetur
-                                                <%= camp.description %>
+                                            <div class="description-cmp-info">
+                                                <p>
+                                                    <%= camp.description %>
+
+                                                </p>
+
                                             </div>
                                             <div class="submited-by">Submited by</div>
 

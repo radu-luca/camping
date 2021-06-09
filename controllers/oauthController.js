@@ -15,6 +15,7 @@ exports.getCallback = (req, res) => {
         body: `client_id=${clientId}&client_secret=${clientSecret}&code=${code}`
     }).then(data => data.json())
         .then(dataJson => {
+            console.log(dataJson);
             const access_token = dataJson.access_token;
             // Another fetch for user informations
             fetch("https://api.github.com/user", {

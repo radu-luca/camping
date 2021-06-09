@@ -60,6 +60,7 @@ exports.getProfileById = (req, res, id) => {
 }
 
 exports.putProfile = (req, res, id) => {
+    // Update JWT token !!!!!!!
     User.findById(id)
         .then(result => {
             if (result) {

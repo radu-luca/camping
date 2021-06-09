@@ -3,9 +3,38 @@ var img = document.getElementById("photocamp");
 var modalImg = document.getElementById("img01");
 let startDate = document.getElementById("start-booking");
 let endDate = document.getElementById("end-booking");
+let displayAllWeathersBtn = document.getElementById("displayAllWeatherBtn");
+let hideAllWeathersBtn = document.getElementById("hideAllWeatherBtn");
 
 setMinStartDate();
 
+displayAllWeathersBtn.addEventListener("click", clearHiddenClass);
+hideAllWeathersBtn.addEventListener("click", addHiddenClass);
+
+function clearHiddenClass() {
+  let weathers = document.getElementsByClassName("weather-container");
+
+  for (let index = 0; index < weathers.length; ++index)
+    if (index > 2) {
+      weathers[index].classList.remove("hidden");
+    }
+
+  displayAllWeathersBtn.classList.add("hidden");
+  hideAllWeathersBtn.classList.remove("hidden");
+}
+
+function addHiddenClass() {
+  let weathers = document.getElementsByClassName("weather-container");
+
+  for (let index = 0; index < weathers.length; ++index)
+    if (index > 2) {
+      weathers[index].classList.add("hidden");
+    }
+
+  displayAllWeathersBtn.classList.remove("hidden");
+  hideAllWeathersBtn.classList.add("hidden");
+
+}
 startDate.addEventListener('input', setMinEndDate);
 
 function setMinStartDate() {

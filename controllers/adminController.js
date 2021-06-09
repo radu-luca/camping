@@ -15,35 +15,35 @@ exports.getAdd = (req, res) => {
     res.end(htmlRenderized);
 };
 
-exports.postAdd = (req,res) => { 
+exports.postAdd = (req, res) => {
     const form = new formidable.IncomingForm();
-    form.parse(req, function(err, fields, files){
-        
+    form.parse(req, function (err, fields, files) {
 
-    let camp = new Camp(fields.name_camp, fields.price, fields.phone, fields.start_date, fields.end_date, fields.description, path.extname(files.imagini.name).toString(),fields.address)
-      .save()
-      .then(result=>{
-        var oldPath = files.imagini.path;
-        var newPath = path.join(__dirname, '..',"public/images")
-                + '/'+result.ops[0]._id.toString()+path.extname(files.imagini.name);
 
-        var rawData = fs.readFileSync(oldPath)
-      
-        fs.writeFile(newPath, rawData, function(err){
-            if(err) console.log(err)
-        })
-        res.writeHead(302, {
-            Location: "/",
-          });
-          res.end();
-      })
-      .catch(err => {
-          console.log(err);
-      });
+        let camp = new Camp(fields.name_camp, fields.price, fields.phone, fields.start_date, fields.end_date, fields.description, path.extname(files.imagini.name).toString(), fields.address, fields.city)
+            .save()
+            .then(result => {
+                var oldPath = files.imagini.path;
+                var newPath = path.join(__dirname, '..', "public/images")
+                    + '/' + result.ops[0]._id.toString() + path.extname(files.imagini.name);
 
-  });
+                var rawData = fs.readFileSync(oldPath)
 
-    
+                fs.writeFile(newPath, rawData, function (err) {
+                    if (err) console.log(err)
+                })
+                res.writeHead(302, {
+                    Location: "/",
+                });
+                res.end();
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+    });
+
+
 }
 
 exports.getContact = (req, res) => {

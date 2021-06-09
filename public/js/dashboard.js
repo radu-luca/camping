@@ -1,10 +1,21 @@
 let editBtn = document.getElementById("editBtn");
 let submitBtn = document.getElementById("submitBtn");
+let cancelBtn = document.getElementById("cancelBooking");
 
 editBtn.addEventListener("click", makeFormEditable);
 submitBtn.addEventListener("click", updateInfo);
-
+cancelBtn.addEventListener("click", cancelBooking);
 // document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function cancelBooking() {
+  let bookingDiv = cancelBtn.parentNode;
+
+  fetch("/book/" + bookingDiv.id, {
+    method: 'DELETE'
+  }).then(data => {
+    bookingDiv.remove();
+  })
+}
 
 function updateInfo() {
   let name = document.getElementById("name").value;

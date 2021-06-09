@@ -145,6 +145,11 @@ const server = http.createServer((req, res) => {
     return campsController.getBookings(req, res);
   }
 
+  if (req.url.match(/\/book\/\w+/) && req.method === "DELETE") {
+    const id = req.url.split('/')[2];
+    return campsController.deleteBooking(req, res, id);
+  }
+
   if (req.url.indexOf(".") != -1) {
     return utilController.getUtilFiles(req, res);
   }

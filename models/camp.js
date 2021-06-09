@@ -10,7 +10,8 @@ class Camp {
     endDate,
     description,
     imgExtension,
-    address
+    address,
+    city
   ) {
     this.name = name;
     this.price = price;
@@ -20,6 +21,7 @@ class Camp {
     this.description = description;
     this.imgExtension = imgExtension;
     this.address = address;
+    this.city = city;
   }
   save() {
     const db = getDb();
