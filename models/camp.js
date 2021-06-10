@@ -11,7 +11,8 @@ class Camp {
     description,
     imgExtension,
     address,
-    city
+    city,
+    isValid
   ) {
     this.name = name;
     this.price = price;
@@ -22,6 +23,7 @@ class Camp {
     this.imgExtension = imgExtension;
     this.address = address;
     this.city = city;
+    this.isValid = isValid;
   }
   save() {
     const db = getDb();
@@ -54,13 +56,51 @@ class Camp {
 
   static deleteCamp(id) {
     const db = getDb();
-    return db.collection("camps").deleteOne(id);
+    return db.collection("camps").deleteOne({ _id: new mongodb.ObjectId(id)});
   }
 
   static search(query) {
     return getDb().collection("camps").find(query).toArray();
   }
 
+  static getUnvalidCamps() {
+    const db = getDb();
+    return db
+      .collection("camps")
+      .find({ isValid: false })
+      .toArray()
+      .then((camps) => {
+        return camps;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  static getValidCamps() {
+    const db = getDb();
+    return db
+      .collection("camps")
+      .find({ isValid: true })
+      .toArray()
+      .then((camps) => {
+        return camps;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  static setvalid(id) {
+    console.log("id camp " + id);
+    const db = getDb();
+    return db.collection("camps").updateOne(
+      { _id: new mongodb.ObjectId(id) },
+      {
+        $set: {
+          isValid: true
+        }
+      }
+    );
+  }
   static findById(campID) {
     const db = getDb();
     return db

@@ -8,6 +8,7 @@ const authController = require("./authController");
 const User = require("../models/user");
 const Book = require("../models/book");
 const mongodb = require('mongodb');
+const Camp = require("../models/camp");
 
 exports.getProfile = (req, res) => {
     let currentUserID = authController.getCurrentUser(req)._id;
@@ -33,15 +34,34 @@ exports.getProfileById = (req, res, id) => {
 
                 let bookings = Book.fetchAllById(id)
                     .then(bookings => {
+                        if(result.isAdmin)
+                        Camp.getUnvalidCamps()
+                        .then(camps =>{
+                            let htmlRenderized = ejs.render(ejsContent, {
+                                filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
+                                user: { name: result.name, email: result.email, phone: result.phone, isAdmin: result.isAdmin },
+                                currentUser: currentUser,
+                                bookings: bookings,
+                                camps : camps
+                            });
+                            res.writeHead(200, { "Content-Type": "text/html" });
+                            res.end(htmlRenderized);
+                        })
+                        .catch(err =>{ 
+                            console.log(err);
+                        })
                         // console.log(bookings);
+                        else {
                         let htmlRenderized = ejs.render(ejsContent, {
                             filename: "views/profile.ejs", isLoggedIn: authController.isLoggedIn(req),
-                            user: { name: result.name, email: result.email, phone: result.phone },
+                            user: { name: result.name, email: result.email, phone: result.phone, isAdmin: result.isAdmin },
                             currentUser: currentUser,
-                            bookings: bookings
+                            bookings: bookings,
+                            camps: null
                         });
                         res.writeHead(200, { "Content-Type": "text/html" });
                         res.end(htmlRenderized);
+                    }
                     })
 
 
@@ -65,7 +85,7 @@ exports.putProfile = (req, res, id) => {
     User.findById(id)
         .then(result => {
             if (result) {
-                console.log(result);
+
                 let data = '';
                 req.on('data', chunk => {
                     data += chunk;

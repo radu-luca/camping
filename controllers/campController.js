@@ -26,10 +26,10 @@ exports.addBook = (req, res) => {
   });
   req.on("end", () => {
     let obj = parse(body);
-    console.log(obj);
     // user_id and camp_id ???
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
+    if(currentUser)
     Camp.findById(campID)
       .then(camp => {
         let book = new Book(obj.startBooking, obj.endBooking, currentUser._id, campID, camp.name)
@@ -45,6 +45,13 @@ exports.addBook = (req, res) => {
             console.log(err);
           });
       })
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
 
   });
 }
@@ -63,7 +70,7 @@ exports.deleteBooking = (req, res, id) => {
 }
 
 exports.getHome = (req, res) => {
-  Camp.fetchAll()
+  Camp.getValidCamps()
     .then((result) => {
       let ejsContent = fs.readFileSync(
         path.join(__dirname, "..", "views/index.ejs"),
@@ -107,7 +114,6 @@ exports.getCamp = (req, res, id) => {
             },
           }).then(data => data.json())
             .then(dataJson => {
-              console.log(dataJson);
               let ejsContent = fs.readFileSync(
                 path.join(__dirname, "..", "views/campFile.ejs"),
                 "utf-8"
@@ -146,7 +152,8 @@ exports.postReview = (req, res) => {
     // console.log(obj);
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
-    console.log(obj);
+    if(currentUser)
+    {
     let review = new Review(obj.reviewText, obj.star, currentUser._id, campID, currentUser._name)
       .save()
       .then((result) => {
@@ -159,5 +166,13 @@ exports.postReview = (req, res) => {
       .catch((err) => {
         console.log(err);
       });
+    }
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
   });
 };
