@@ -26,7 +26,6 @@ exports.addBook = (req, res) => {
   });
   req.on("end", () => {
     let obj = parse(body);
-    console.log(obj);
     // user_id and camp_id ???
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
@@ -63,7 +62,7 @@ exports.deleteBooking = (req, res, id) => {
 }
 
 exports.getHome = (req, res) => {
-  Camp.fetchAll()
+  Camp.getValidCamps()
     .then((result) => {
       let ejsContent = fs.readFileSync(
         path.join(__dirname, "..", "views/index.ejs"),
@@ -107,7 +106,6 @@ exports.getCamp = (req, res, id) => {
             },
           }).then(data => data.json())
             .then(dataJson => {
-              console.log(dataJson);
               let ejsContent = fs.readFileSync(
                 path.join(__dirname, "..", "views/campFile.ejs"),
                 "utf-8"
@@ -146,7 +144,7 @@ exports.postReview = (req, res) => {
     // console.log(obj);
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
-    console.log(obj);
+
     let review = new Review(obj.reviewText, obj.star, currentUser._id, campID, currentUser._name)
       .save()
       .then((result) => {

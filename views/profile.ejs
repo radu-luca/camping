@@ -111,6 +111,29 @@
                                             </div>
                                             <%}%>
                                     </form>
+                                    <%if(camps)
+                                    for(let camp of camps) {%>
+                                        <div class="edit-camp"> 
+                                            <a class="url-camp" href="/campground/<%=camp._id %>"> 
+                                            <i class="fas fa-campground"></i> 
+                                                <%= camp.name %> </a> 
+                                                <div>
+                                                    <form action="/delete-camp/<%=camp._id%>" method="POST">
+                                                    <input type="hidden">
+                                                    <button type="submit">
+                                                        <i class="fas fa-window-close btn-red"></i>
+                                                    </button>
+                                                    </form>
+                                                    <form action="/accept-camp/<%= camp._id%>" method="POST">
+                                                        <input type="hidden">
+                                                        <button type="submit">
+                                                            <i class="fas fa-check-square btn-green"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                               
+                                        </div>
+                                    <%}%>
                                 </div>
                             </main>
                         </div>

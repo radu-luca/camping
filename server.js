@@ -67,6 +67,14 @@ const server = http.createServer((req, res) => {
     }
     return authController.getRegister(req, res);
   }
+  if (req.url.match(/\/delete-camp\/\w+/) && req.method === 'POST') {
+    const id = req.url.split('/')[2];
+    return adminController.deleteCamp(req,res,id);
+  }
+  if (req.url.match(/\/accept-camp\/\w+/) && req.method === 'POST') {
+    const id = req.url.split('/')[2];
+    return adminController.acceptCamp(req,res,id);
+  }
   if (req.url === "/api/camps" && req.method === "GET") {
     return apiRestController.getCamps(req, res);
   }

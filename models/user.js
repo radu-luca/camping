@@ -8,6 +8,7 @@ class User {
     this.phone = phone;
     this.password = password;
     this.githubToken = githubToken;
+    this.isAdmin = false;
   }
   save() {
     const db = getDb();
