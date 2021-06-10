@@ -29,6 +29,7 @@ exports.addBook = (req, res) => {
     // user_id and camp_id ???
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
+    if(currentUser)
     Camp.findById(campID)
       .then(camp => {
         let book = new Book(obj.startBooking, obj.endBooking, currentUser._id, campID, camp.name)
@@ -44,6 +45,13 @@ exports.addBook = (req, res) => {
             console.log(err);
           });
       })
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
 
   });
 }
@@ -100,7 +108,7 @@ exports.getCamp = (req, res, id) => {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              "x-rapidapi-key": "ebd8dc8590msh39bba36e9620903p1d5640jsnd7c43745d0a5",
+              "x-rapidapi-key": "9d80b9c20emsh9320da2337d5033p106231jsn6a8cccc0d42c",
               "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
               "useQueryString": true
             },
@@ -144,7 +152,8 @@ exports.postReview = (req, res) => {
     // console.log(obj);
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
-
+    if(currentUser)
+    {
     let review = new Review(obj.reviewText, obj.star, currentUser._id, campID, currentUser._name)
       .save()
       .then((result) => {
@@ -157,5 +166,13 @@ exports.postReview = (req, res) => {
       .catch((err) => {
         console.log(err);
       });
+    }
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
   });
 };
