@@ -1,11 +1,11 @@
-let menuBtn = document.getElementById("menuBtn");
+let menuBttn = document.getElementById("menuBtn");
 let navPanel = document.getElementById("navPanel");
 let displayAllCampsBtn = document.getElementById("displayAll-btn");
 let hideAllCamps = document.getElementById("hideAll-btn");
 
 window.onresize=hideCollapsedNavBar();
 
-menuBtn.addEventListener("click", onMenuClick);
+menuBttn.addEventListener("click", onMenuClick);
 window.addEventListener("resize", hideCollapsedNavBar);
 displayAllCampsBtn.addEventListener("click", clearHiddenClass);
 hideAllCamps.addEventListener("click", addHiddenClass);
