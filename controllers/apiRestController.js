@@ -54,7 +54,9 @@ exports.getReviews = (req, res) => {
 };
 
 exports.getReview = (req, res, id) => {
-  Review.findReviewById(id)
+  let newUrl = req.url.substring(req.url.indexOf("?") + 1, req.url.length);
+  const obj = querystring.parse(newUrl);
+  Review.findReviewById(obj._id)
     .then((result) => {
       if (result) {
         res.setHeader("Content-Type", "application/json");
@@ -125,7 +127,7 @@ exports.postCamp = (req, res) => {
     obj.startDate,
     obj.endDate,
     obj.description,
-    obj.imgExtension
+    null
   )
     .save()
     .then((result) => {
