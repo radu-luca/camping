@@ -72,7 +72,7 @@ figcaption {
 }
 pre code {
     display: block;
-    background: none;
+    background: #FBEAFF;
     white-space: pre;
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
