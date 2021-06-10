@@ -39,9 +39,9 @@
                                     <div class="camp-map">
 
                                     </div>
-                                    <% let i=0; %>
+                                    <% var i=0; %>
                                         <%for(let dayWeather of weather) {%>
-                                            <%if(i < 3){%>
+                                            <%if(i < 2){%>
                                                 <div class="weather-container">
                                                     <div class="left">
                                                         <img src="https://www.weatherbit.io/static/img/icons/<%=dayWeather.weather.icon%>.png"
@@ -54,38 +54,49 @@
                                                         <span>
                                                             <%= dayWeather.datetime %>
                                                         </span>
-                                                        <span>Min: <%= dayWeather.min_temp %> &#176C</span>
-                                                        <span>Max: <%= dayWeather.max_temp %> &#176C</span>
+                                                        <span><i class="fas fa-temperature-low"></i>
+                                                            <%= dayWeather.min_temp %> &#176C
+                                                        </span>
+                                                        <span><i class="fas fa-temperature-high"></i>
+                                                            <%= dayWeather.max_temp %> &#176C
+                                                        </span>
                                                     </div>
                                                 </div>
-                                                <% i++%>
-                                                    <% } else { %>
-                                                        <div class="weather-container hidden">
-                                                            <div class="left">
-                                                                <img src="https://www.weatherbit.io/static/img/icons/<%=dayWeather.weather.icon%>.png"
-                                                                    alt="Weather">
-                                                                <span>
-                                                                    <%= dayWeather.temp %> &#176C
-                                                                </span>
-                                                            </div>
-                                                            <div class="right">
-                                                                <span>
-                                                                    <%= dayWeather.datetime %>
-                                                                </span>
-                                                                <span>Min: <%= dayWeather.min_temp %> &#176C</span>
-                                                                <span>Max: <%= dayWeather.max_temp %> &#176C</span>
-                                                            </div>
-                                                        </div>
-                                                        <% } %>
-                                                            <% } %>
-                                                                <div class="btn-container">
-                                                                    <button type="button" id="displayAllWeatherBtn">Show
-                                                                        more</button>
-
-                                                                    <button type="button" id="hideAllWeatherBtn"
-                                                                        class="hidden">Show
-                                                                        less</button>
+                                                <% } %>
+                                                    <% if(i> 1 && i < 6) { %>
+                                                            <div class="weather-container hidden">
+                                                                <div class="left">
+                                                                    <img src="https://www.weatherbit.io/static/img/icons/<%=dayWeather.weather.icon%>.png"
+                                                                        alt="Weather">
+                                                                    <span>
+                                                                        <%= dayWeather.temp %> &#176C
+                                                                    </span>
                                                                 </div>
+                                                                <div class="right">
+                                                                    <span>
+                                                                        <%= dayWeather.datetime %>
+                                                                    </span>
+                                                                    <span><i class="fas fa-temperature-low"></i>
+                                                                        <%= dayWeather.min_temp %> &#176C
+                                                                    </span>
+                                                                    <span><i class="fas fa-temperature-high"></i>
+                                                                        <%= dayWeather.max_temp %> &#176C
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <% } %>
+                                                                <% i=i+1 %>
+                                                                    <% } %>
+                                                                        <div class="btn-container">
+                                                                            <button type="button"
+                                                                                id="displayAllWeatherBtn"
+                                                                                class="btnWeather">Show
+                                                                                more</button>
+
+                                                                            <button type="button" id="hideAllWeatherBtn"
+                                                                                class="hidden btnWeather">Show
+                                                                                less</button>
+                                                                        </div>
 
                                 </div>
                                 <div class="main-content">

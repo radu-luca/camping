@@ -100,12 +100,13 @@ exports.getCamp = (req, res, id) => {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
-              "x-rapidapi-key": "ebd8dc8590msh39bba36e9620903p1d5640jsnd7c43745d0a5",
+              "x-rapidapi-key": "9d80b9c20emsh9320da2337d5033p106231jsn6a8cccc0d42c",
               "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
               "useQueryString": true
             },
           }).then(data => data.json())
             .then(dataJson => {
+              console.log(dataJson);
               let ejsContent = fs.readFileSync(
                 path.join(__dirname, "..", "views/campFile.ejs"),
                 "utf-8"
