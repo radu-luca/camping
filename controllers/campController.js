@@ -114,6 +114,7 @@ exports.getCamp = (req, res, id) => {
             },
           }).then(data => data.json())
             .then(dataJson => {
+              console.log(dataJson);
               let ejsContent = fs.readFileSync(
                 path.join(__dirname, "..", "views/campFile.ejs"),
                 "utf-8"
