@@ -107,10 +107,18 @@ const server = http.createServer((req, res) => {
     return authController.postRegister(req, res);
   }
   if (req.url.match(/\/campground\/\w+/) && req.method === 'GET') {
+    if (!authController.isLoggedIn(req)) {
+      redirect(res, "/login");
+      return res.end();
+    }
     const id = req.url.split('/')[2];
     return campsController.getCamp(req, res, id);
   }
   if (req.url === "/leave-review" && req.method === "POST") {
+    if (!authController.isLoggedIn(req)) {
+      redirect(res, "/login");
+      return res.end();
+    }
     return campsController.postReview(req, res);
   }
   if (req.url === "/contact" && req.method === "GET") {
@@ -138,14 +146,22 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.url === "/book" && req.method === "POST") {
+    if (!authController.isLoggedIn(req)) {
+      redirect(res, "/login");
+      return res.end();
+    }
     return campsController.addBook(req, res);
   }
 
-  if (req.url === "/bookings" && req.method === "GET") {
-    return campsController.getBookings(req, res);
-  }
+  // if (req.url === "/bookings" && req.method === "GET") {
+  //   return campsController.getBookings(req, res);
+  // }
 
   if (req.url.match(/\/book\/\w+/) && req.method === "DELETE") {
+    if (!authController.isLoggedIn(req)) {
+      redirect(res, "/login");
+      return res.end();
+    }
     const id = req.url.split('/')[2];
     return campsController.deleteBooking(req, res, id);
   }
