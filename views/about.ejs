@@ -27,6 +27,8 @@
             <li><a href="#Overall-Description"><span>2. </span>Overall Description</a>
                 <ol role="directory">
                     <li><a href="#Product-Functions"><span>2.1 </span>Product Functions</a></li>
+                    <li><a href="#database"><span>2.2 </span>Database</a></li>
+                    <li><a href="#APIs"><span>2.3 </span>APIs</a></li>
                 </ol>
             </li>
             <li><a href="#External-Interface-Requirements"><span>3. </span>External Interface Requirements</a>
@@ -43,6 +45,8 @@
                     </li>
                 </ol>
             </li>
+            <li><a href="#api-section"><span>4. </span>Own API</a>
+                </li>
 
         </ol>
         <section typeof="sa:AuthorsList">
@@ -147,11 +151,26 @@
                 <li>Users can reserve a campground</li>
                 <li>Users have on his profile page a list with reserved campgrounds where they can cancel it.</li>
                 <li>Every camp has informations about price, location, contanct , utilities and weather.</li>
-                <li>User can see the weather of a campground for 16 days.</li>
+                <li>User can see the weather of a campground for 5 days.</li>
             </ul>
             </p>
         </section>
-
+        <section id="database">
+            <h3> <span> 2.2</span>
+                Database
+            </h3>
+            <p>
+                I used MongoDB to store the information. The collections have a suggestive name: users, camps, reviews and books.
+            </p>
+        </section>
+        <section id="APIs">
+            <h3> <span> 2.3</span>
+                APIs
+            </h3>
+            <p>
+                To locate the campground on the map, we used an API called OpenStreeMap, and for the weather we used Weatherbit which gives us information for the next 5 days.
+            </p>
+        </section>
 
     </section>
 
@@ -359,9 +378,9 @@
         </section>
 
     </section>
-    <section id="API">
+    <section id="our-API">
         <h2>
-            <span>3 </span>
+            <span>4 </span>
             API
         </h2>
         <section id="api-section">
@@ -377,34 +396,34 @@
                         </li>
                         <pre>
                         <code>
-[
-    {
-        "_id": "60c1ea22aebe7a0db876846d",
-        "name": "Lacul Cioresti",
-        "price": "102.0",
-        "phone": "+37368230349",
-        "startDate": "2021-06-05",
-        "endDate": "2021-07-02",
-        "description": "Descriere camp",
-        "imgExtension": ".jpg",
-        "address": "Cioresti, Nisporeni",
-        "city": "Nisporeni",
-        "isValid": true
-    },
-    {
-        "_id": "60c1f7e3fe9b513c1ce4407a",
-        "name": "Padurea Codru",
-        "price": "102.0",
-        "phone": "0746637173",
-        "startDate": "2021-05-31",
-        "endDate": "2021-06-01",
-        "description": "Descrire Camp",
-        "imgExtension": ".jpg",
-        "address": "Iasi, Romania",
-        "city": "Iasi",
-        "isValid": true
-    }
-]
+                    [
+                        {
+                            "_id": "60c1ea22aebe7a0db876846d",
+                            "name": "Lacul Cioresti",
+                            "price": "102.0",
+                            "phone": "+37368230349",
+                            "startDate": "2021-06-05",
+                            "endDate": "2021-07-02",
+                            "description": "Descriere camp",
+                            "imgExtension": ".jpg",
+                            "address": "Cioresti, Nisporeni",
+                            "city": "Nisporeni",
+                            "isValid": true
+                        },
+                        {
+                            "_id": "60c1f7e3fe9b513c1ce4407a",
+                            "name": "Padurea Codru",
+                            "price": "102.0",
+                            "phone": "0746637173",
+                            "startDate": "2021-05-31",
+                            "endDate": "2021-06-01",
+                            "description": "Descrire Camp",
+                            "imgExtension": ".jpg",
+                            "address": "Iasi, Romania",
+                            "city": "Iasi",
+                            "isValid": true
+                        }
+                    ]
                         </code>
                     </pre>
                     </ul>
