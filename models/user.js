@@ -20,12 +20,12 @@ class User {
       .updateOne(id, obj);
   };
 
-  static findDb(emaill, passwordd) {
+  static findDb(emaill) {
     //  console.log(emaill, passwordd);
     const db = getDb();
     return db
       .collection('users')
-      .find({ email: emaill, password: passwordd })
+      .find({ email: emaill})
       .next()
       .then(result => {
         return result;
