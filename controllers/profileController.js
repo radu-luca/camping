@@ -59,6 +59,7 @@ exports.getProfileById = (req, res, id) => {
         })
 }
 
+
 exports.putProfile = (req, res, id) => {
     // Update JWT token !!!!!!!
     User.findById(id)
@@ -81,7 +82,14 @@ exports.putProfile = (req, res, id) => {
                     };
                     User.updateUser(objID, objUser)
                         .then(response => {
+                            const payload = { name: obj.name, _id: id }
+                            const token = jwt.sign(payload, secretJWT, {
+                                algorithm: "HS256",
+                                expiresIn: 5000
+                            });
+                            // Write token to cookie
                             res.writeHead(200, {
+                                'Set-Cookie': 'token=' + token + '; Path=/',
                                 'Content-type': 'application/json'
                             });
                             res.end(JSON.stringify({ id: id }));
