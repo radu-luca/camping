@@ -98,9 +98,9 @@ const server = http.createServer((req, res) => {
     const id = req.url.split('/')[4];
     return apiRestController.getReviewsByCampId(req, res, id);
   }
-  if (req.url.match(/\/api\/reviews\/\w+/) && req.method === "GET") {
-    const id = req.url.split('/')[3];
-    return apiRestController.getReview(req, res, id);
+  if (req.url.match(/\/api\/reviews/) && req.method === "GET") {
+
+    return apiRestController.getReview(req, res);
   }
   if (req.url.match(/\/api\/reviews\//) && req.method === "POST") {
     return apiRestController.postReview(req, res);

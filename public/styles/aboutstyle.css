@@ -70,3 +70,14 @@ figcaption {
     color: white;
     width: 50%;
 }
+pre code {
+    display: block;
+    background: none;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    max-width: 60%;
+    min-width: 60px;
+    padding: 0;
+    
+  }
