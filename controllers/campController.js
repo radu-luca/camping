@@ -29,6 +29,7 @@ exports.addBook = (req, res) => {
     // user_id and camp_id ???
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
+    if(currentUser)
     Camp.findById(campID)
       .then(camp => {
         let book = new Book(obj.startBooking, obj.endBooking, currentUser._id, campID, camp.name)
@@ -44,6 +45,13 @@ exports.addBook = (req, res) => {
             console.log(err);
           });
       })
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
 
   });
 }
@@ -145,7 +153,8 @@ exports.postReview = (req, res) => {
     // console.log(obj);
     let currentUser = authController.getCurrentUser(req);
     let campID = req.headers.referer.split("/")[4];
-
+    if(currentUser)
+    {
     let review = new Review(obj.reviewText, obj.star, currentUser._id, campID, currentUser._name)
       .save()
       .then((result) => {
@@ -158,5 +167,13 @@ exports.postReview = (req, res) => {
       .catch((err) => {
         console.log(err);
       });
+    }
+      else
+      {
+        res.writeHead(302, {
+          Location: req.headers.referer,
+        });
+        res.end();
+      }
   });
 };

@@ -244,7 +244,16 @@
                         The user have a button for change his avatar picture, in the left of the page , where can choose a photo from his device.<br>
                          If the user is an admin , he will have a button for see the camping added by users which are not accepted yet, where he can accept or refuse the proposal.
                     </p>
+                    <p>
+                        If the user is an admin , he will have a list of campgrounds that are not accepted yet( added by a regular user ,and waiting to be accepted by an admin),
+                        the admin can see the camp , and accept or reject the camp.
+                        <figure typeof="sa:image">
+                            <img class="fig-img" src="../public/images/adminProfile.png" alt="Profile Page Admin ">
+                             
+                        </figure>
+                    </p>
                 </div>
+
             </section>
 
             <section id="add-camp"> 
@@ -292,8 +301,9 @@
                 <div class="txt-paragraph">
                     <p>
                         On the campground page, immediately after the description you will have to select 
-                        the date when you want to make the reservation ( <span class="small-txt">number 1 in the picture</span> ) and then confirm the choice by typing 
-                        the "Book now" button ( <span class="small-txt">number 2 in the picture</span> ).
+                        the dates between  you want to make the reservation and then confirm the choice by typing 
+                        the "Book now" button .Dupa ce ai facut o rezervare , aceasta va aparea pe profilul tau, si vei putea vedea toate rezervarile tale,
+                        precum si a le anula.
                         <figure typeof="sa:image">
                             <img class="fig-img" src="../public/images/bookNow.PNG"
                                  alt="Book now instruction">
@@ -321,7 +331,7 @@
                 <div class="txt-paragraph">
                     <p>
                        2. After the next window appears 
-                       ( <a href="#review">figure</a> ) , leave a rating between 1-5, a comment and optional pictures or video:
+                       ( <a href="#review">figure</a> ) , leave a rating between 1-5 and a comment about your trip was:
                         <figure id="review" typeof="sa:image">
                             <img class="fig-img" src="../public/images/review2.PNG"
                                  alt="Review windows">
@@ -333,6 +343,31 @@
         </section>
 
     </section>
+    <section id="API">
+        <h2>
+            <span>3 </span>
+            API
+        </h2>
+        <section id="api-section">
+           We create an public API for anyone who want to add to their website , this API return a JSON object with informations about campgrounds:
+           <ul>
+               <li  class="api-request">
+                   <ul>
+                       <li>'request':GET</li>
+                       <li>'url':"/api/camps"</li>
+                       <li>Description:return a JSON object with all the campgrounds in our database.</li>
+                   </ul>
+                   
+               </li>
+               <li class="api-request">
+                   <ul>
+                       <li>'request':POST</li>
+                       <li>'url':"/api/camps"</li>
+                       <li>Description:return a JSON object with all the campgrounds in our database.</li>
+                   </ul>
+               </li>
+           </ul> 
+        </section>
 </body>
 
 </html>

@@ -230,6 +230,12 @@ exports.getCurrentUser = (req) => {
   const token = parseCookies(req).token;
 
   // Do a try - catch
-  let payload = jwt.verify(token, secretJWT);
-  return { _id: payload._id, _name: payload.name };
+  try {
+   let payload = jwt.verify(token, secretJWT);
+   return { _id: payload._id, _name: payload.name };
+  } catch (e) {
+    // Invalid token
+    return null;
+  }
+
 };

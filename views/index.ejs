@@ -50,8 +50,13 @@
                                     <% for(let camp of camps) { %>
                                         <div class="gallery__thumbnail">
                                             <a href="/campground/<%= camp._id %>">
+                                                <%if(camp.imgExtension) {%>
                                                 <img src="../public/images/<%= camp._id %><%= camp.imgExtension %>"
-                                                    alt="">
+                                                    alt="Campground image">
+                                                    <% } else {%>
+                                                        <img src="../public/images/no-image.png"
+                                                    alt="Default image campground">
+                                                        <%}%>
                                                 <div class="thumbnail__infos">
                                                     <span>
                                                         <%= camp.name %>
